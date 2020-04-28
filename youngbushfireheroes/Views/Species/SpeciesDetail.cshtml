@@ -1,0 +1,80 @@
+﻿@model youngbushfireheroes.Models.Species
+@{
+    ViewBag.Title = "SpeciesDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <span class="centername">@Html.DisplayFor(model => model.name)</span>
+    <div class="card-row">
+
+        <img class="put-center" src=@Model.pic width="600" />
+
+        
+    </div>
+
+<hr />
+
+<div class="card-row">
+    <div class="card-column">
+        <div class="card">
+            <title-in-card>Type</title-in-card>
+            <hr />
+            <span class="font-card">
+                @Html.DisplayFor(model => model.type)
+            </span>
+                
+        </div>
+    </div>
+    <div class="card-column">
+        <div class="card">
+            <title-in-card>where</title-in-card>
+            <hr />
+            <span class="font-card">
+                @Html.DisplayFor(model => model.where)
+            </span>
+        </div>
+    </div>
+
+    <div class="card-column">
+        <div class="card">
+            <title-in-card>habitat</title-in-card>
+            <hr />
+            <span class="font-card">
+                @Html.DisplayFor(model => model.habitat)
+            </span>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="card-row">
+    <div class="card-column">
+        <div class="card">
+            <title-in-card>Food</title-in-card>
+            <hr />
+            <span class="font-card">
+                @Html.DisplayFor(model => model.food)
+            </span>
+</div>
+    </div>
+    <div class="card-column">
+        <div class="card">
+            <title-in-card>Size</title-in-card>
+            <hr />
+            <span class="font-card">
+                @Html.DisplayFor(model => model.size)
+            </span>
+        </div>
+    </div>
+
+    <div class="card-column">
+        <div class="card">
+            <title-in-card>interesting fact</title-in-card>
+            <hr />
+            <span class="font-card">
+                @Html.DisplayFor(model => model.interest_fact)
+                </span>
+        </div>
+    </div>
+
+</div>

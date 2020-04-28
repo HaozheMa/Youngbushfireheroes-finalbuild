@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Bushfire - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" id="bubbles">
+
+</div>
+<div class="info-box">
+    <div class="info-container">
+        <square-title>So how did the bush fire affect wildlife?</square-title>
+    </div>
+
+</div>
+<square-warn class="centername">⇣Try to click the fire image⇣</square-warn>
+<div class="row">
+    <div class="left-column">
+        <img class="responsive" id="house" src="~/Image/affected house.jpg" width="300" style="visibility: hidden" />
+
+    </div>
+    <div class="right-column">
+
+        <img class="responsive" id="people" src="~/Image/affected people.jpg" width="300" style="visibility: hidden" />
+    </div>
+</div>
+
+<div class="warn-box">
+    <square-title style="color:black">Not only people and their houses</square-title>
+    <div class="bushfire-box">
+        <div class="fire" onclick="showFunction()">
+            <div class="fire-left">
+                <div class="main-fire"></div>
+                <div class="particle-fire"></div>
+            </div>
+            <div class="fire-main">
+                <div class="main-fire"></div>
+                <div class="particle-fire"></div>
+            </div>
+            <div class="fire-right">
+                <div class="main-fire"></div>
+                <div class="particle-fire"></div>
+            </div>
+            <div class="fire-bottom">
+                <div class="main-fire"></div>
+            </div>
+        </div>
+    </div>
+    <square-warn class="warn-top">But also animals and their houses</square-warn>
+
+</div>
+<div class="row">
+    <div class="left-column">
+
+        <img class="responsive" id="animals" src="~/Image/animals affected.jpg" width="550" style="visibility: hidden" />
+    </div>
+    <div class="right-column">
+        <img class="responsive" id="habitat" src="~/Image/hanitat affected.jpg" width="300" style="visibility: hidden" />
+    </div>
+</div>
+<hr />
+
+<square-question>How much you know about the bushfire?</square-question>
+<square-question>move your mouse on the question cards, see answers!</square-question>
+
+
+
+<div class="row">
+    <div class="module-column-left">
+        <div class="question-container">
+            <img src="~/Image/card- When did the bushfire start.PNG" alt="Avatar" class="aimage"/>
+            
+
+            <div class="overlay">
+                <div class="answer-text">November 2019</div>
+            </div>
+        </div>
+    </div>
+    <div class="module-column-right">
+        <div class="question-container">
+            <img src="~/Image/card- When did the bushfire end.PNG" alt="Avatar" class="aimage" />
+           
+
+            <div class="overlay">
+                <div class="answer-text">February 2020</div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="module-column-left">
+        <div class="question-container">
+            <img src="~/Image/card-Which areas.PNG" alt="Avatar" class="aimage"/>
+             
+
+            <div class="overlay">
+                <div class="answer-text-small">
+                    Wulgulmerang,
+                    Gelantipy,
+                    W Tree,
+                    Buchan,
+                    Wairewa,
+                    Bruthen,
+                    Sarsfield
+                    Tambo Valley
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module-column-right">
+        <div class="question-container">
+            <img src="~/Image/card- How many days.PNG" alt="Avatar" class="aimage"/>
+             
+
+            <div class="overlay">
+                <div class="answer-text">91 days</div>
+            </div>
+        </div>
+    </div>
+</div>
