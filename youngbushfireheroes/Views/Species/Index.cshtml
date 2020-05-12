@@ -15,24 +15,34 @@
 <div class="info-box">
     <div class="info-container">
         <square-title>What were the effects of this bush fire?</square-title>
-        <h3>Animals population is decreased </h3>
-        <h3>Animals lost their habitat</h3>
-        <h3>They don't have enough food and water</h3>
+        <h2>Animals population is decreased </h2>
+        <img id="number" src="~/Image/animations/animal-number-decrease-1.gif" width="100%" onclick="replay1()" />
+        <h3>click picture to see it again</h3>
+        <h2>Animals lost their habitat</h2>
+        <img id="habitat" src="~/Image/animations/animal-lost-habitat-1.gif" width="100%" onclick="replay2()" />
+        <h3>click picture to see it again</h3>
+        <h2>They don't have enough food and water</h2>
+        <img id="eating" src="~/Image/animations/animal-lost-food_water-1.gif" width="100%" onclick="replay3()" />
+        <h3>click picture to see it again</h3>
     </div>
 </div>
 
 <hr />
-<square-warn style="text-align:center">
-    Species affected in gippsland
-</square-warn>
+<div class="info-box" id="species-affected">
+    <div class="info-container">
+        <square-title style="text-align:center">
+            Species affected in gippsland
+        </square-title>
+    </div>
+</div>
 <div class="row">
     <div class="module-column-left">
-        <img src="~/Image/rock wallaby module.png" width="900" class="responsive"/>
+        <img src="~/Image/rock wallaby module.png" width="900" class="responsive" />
     </div>
     <div class="right-column">
         <h1 class="module-text"> Want to know more about Wallabies? </h1>
         <a href="/Species/SpeciesDetail/6">
-            <img src="~/Image/see more-wallaby.png" width="200" class="responsive img-shake"/>
+            <img src="~/Image/see more-wallaby.png" width="200" class="responsive img-shake" />
         </a>
     </div>
 </div>
@@ -41,11 +51,11 @@
     <div class="left-column">
         <h1 class="module-text"> Want to know more about Potorooes? </h1>
         <a href="/Species/SpeciesDetail/2">
-            <img src="~/Image/see more-potoroo.png"  width="200" class="responsive img-shake"/> 
-        </a> 
+            <img src="~/Image/see more-potoroo.png" width="200" class="responsive img-shake" />
+        </a>
     </div>
     <div class="module-column-right">
-        <img src="~/Image/potoroo module.png" width="900"  class="responsive"/>
+        <img src="~/Image/potoroo module.png" width="900" class="responsive" />
     </div>
 </div>
 <hr />
@@ -56,8 +66,8 @@
     <div class="right-column">
         <h1 class="module-text"> Want to know more about Koala? </h1>
         <a href="/Species/SpeciesDetail/5">
-            <img src="~/Image/see more-koala.png"  width="200" class="responsive img-shake"/> 
-        </a> 
+            <img src="~/Image/see more-koala.png" width="200" class="responsive img-shake" />
+        </a>
     </div>
 </div>
 <hr />
@@ -65,26 +75,26 @@
     <div class="left-column">
         <h1 class="module-text"> Want to know more about Greater Glider? </h1>
         <a href="/Species/SpeciesDetail/3">
-            <img src="~/Image/see more-glider.png" width="200" class="responsive img-shake"/> 
-        </a> 
+            <img src="~/Image/see more-glider.png" width="200" class="responsive img-shake" />
+        </a>
     </div>
     <div class="module-column-right">
-        <img src="~/Image/Greater Glider module.png" width="900"  class="responsive"/>
+        <img src="~/Image/Greater Glider module.png" width="900" class="responsive" />
     </div>
 </div>
 <hr />
 <div class="row">
     <div class="module-column-left">
-        <img src="~/Image/Python module.png" width="850"class="responsive"  />
+        <img src="~/Image/Python module.png" width="850" class="responsive" />
 
     </div>
     <div class="right-column">
         <h1 class="module-text"> Want to know more about Carpet python? </h1>
         <a href="/Species/SpeciesDetail/7">
-            <img src="~/Image/see more-python.png" width="200" class="responsive img-shake"/>
-            
+            <img src="~/Image/see more-python.png" width="200" class="responsive img-shake" />
+
         </a>
-         
+
     </div>
 </div>
 <hr />
@@ -94,11 +104,41 @@
         <h1 class="module-text"> Want to know more about quoll module? </h1>
         <a href="/Species/SpeciesDetail/8">
             <img src="~/Image/see more-quoll.png" width="200" class="responsive img-shake" />
-           
-        </a> 
+
+        </a>
     </div>
     <div class="module-column-right">
         <img src="~/Image/quoll module.png" width="900" class="responsive" />
 
     </div>
 </div>
+
+<hr />
+
+<div class="show-box">
+    <div class="show-container">
+        <show-text>
+            Lets learn some ways to help the animals and rebuilding after bushfire
+        </show-text>
+        <br />
+        <a href="">
+            <img class=" responsive" src="~/Image/animals/picture link to learning.png" width="600" />
+        </a>
+        <h1 class="img-shake">↑click on it!↑</h1>
+    </div>
+</div>
+
+<script>
+    function replay1() {
+        var src = document.getElementById('number').getAttribute("src");
+        document.getElementById('number').setAttribute("src", src);
+    }
+    function replay2() {
+        var src = document.getElementById('habitat').getAttribute("src");
+        document.getElementById('habitat').setAttribute("src", src);
+    }
+    function replay3() {
+        var src = document.getElementById('eating').getAttribute("src");
+        document.getElementById('eating').setAttribute("src", src);
+    }
+</script>

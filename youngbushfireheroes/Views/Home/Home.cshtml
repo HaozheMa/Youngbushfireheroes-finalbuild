@@ -3,6 +3,21 @@
     ViewBag.Title = "";
 }
 
+    <div class="show-box">
+        <div class="show-container">
+            <show-text>Welcome to our website Young Bush fire Heroes!</show-text>
+            <h3>Recent bush fire caused many problems. It caused problems to our Animals friends too. But don't worry, there many ways to help Animal friends. We will need your help to do that.</h3>
+
+            <h3> Lets start by learning about bush fire. </h3>
+            <a href="~/Bushfire/Index">
+                <img class=" responsive" src="~/Image/homepage/linktobushfire.jpg" width="600" />
+
+            </a>
+            <h1 class="img-shake">↑click on it!↑</h1>
+        </div>
+
+
+    </div>
 
 <div class="image-container">
     <div class="mySlides ">
@@ -30,8 +45,12 @@
     </div>
 
 
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+    <a class="prev" onclick="plusSlides(-1)">
+        <img src="~/Image/go left icon.png" width="50"/>
+    </a>
+    <a class="next" onclick="plusSlides(1)">
+        <img src="~/Image/go right icon.png" width="50"/>
+    </a>
 
     <div class="caption-container">
         <p id="caption"></p>
@@ -52,45 +71,19 @@
 
 <hr />
 
-<div class="show-box">
-    <div class="show-container">
-        <show-text>Welcome to our website Young Bush fire Heroes!</show-text>
-        <h3>Recent bush fire caused many problems. It caused problems to our Animals friends too. But don't worry, there many ways to help Animal friends. We will need your help to do that.</h3>
 
-        <h3> Lets start by learning about bush fire. </h3>
-        <a href="~/Bushfire/Index">
-            <img class="img-shake responsive" src="~/Image/pic for bushfire func.JPG" width="600" />
-        </a>
-        <h1>↑click on it!↑</h1>
-    </div>
-
-
-</div>
 
 <div class="bubble-container bubble-image-cropper   x1">
-
-    <img src="~/Image/Question mark 2.png" alt="Avatar" class="bubble-image avatar " style="width:100%" />
-    <div class="bubble-middle ">
-
-        <div class="text">
-            @Html.ActionLink("surprise!", "SpeciesDetail", "Home")
-        </div>
-
-    </div>
-
+    <a href='@Url.Action("SpeciesDetail", "Home")'>
+        <img src="~/Image/Question mark 2.png"  class="bubble-image" style="width:100%" />
+        </a>
 </div>
 
 <div class="bubble-container bubble-image-cropper   x4">
-    <img src="~/Image/Question mark 2.png" alt="Avatar" class="bubble-image avatar " style="width:100%" />
-    <div class="bubble-middle">
 
-        <div class="text">
-            @Html.ActionLink("surprise!", "SpeciesDetail", "Home")
-        </div>
-
-
-    </div>
-
+    <a href='@Url.Action("SpeciesDetail", "Home")'>
+        <img src="~/Image/Question mark 2.png" class="bubble-image" style="width:100%" />
+    </a>
 </div>
 
 

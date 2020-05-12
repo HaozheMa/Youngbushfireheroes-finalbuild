@@ -63,8 +63,7 @@ img {
     top: 40%;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
-    background-color: black;
+    margin-top: -50px; 
     font-weight: bold;
     font-size: 20px;
     border-radius: 0 3px 3px 0;
@@ -74,6 +73,7 @@ img {
 
 /* Position the "next button" to the right */
 .next {
+    
     right: 0;
     border-radius: 3px 0 0 3px;
 }
@@ -169,8 +169,8 @@ img {
 
 
 .bubble-container {
-    position: relative;
-    width: 50%;
+    position: absolute;
+    width: 30%;
 }
 
 .bubble-image {
@@ -406,6 +406,14 @@ title-in-card {
     font-style: normal;
     font-size: 20px;
     text-align: justify;
+   
+   
+}
+
+@media screen and (max-width: 1000px) {
+    .font-card {
+        font-size: 4vw;
+    }
 }
 .info-box {
     border: 5px dotted #bbb;
@@ -434,7 +442,7 @@ title-in-card {
 .card-column {
     box-sizing: border-box;
     float: left;
-    width: 25%;
+    width:25%;
     padding: 0 10px;
     width: 33.33%;
 }
@@ -453,9 +461,9 @@ title-in-card {
     }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     .card-column {
-        width: 100%;
+        width: 70%;
         display: block;
         margin-bottom: 20px;
     }
@@ -468,6 +476,63 @@ title-in-card {
     text-align: center;
     background-color: #f1f1f1;
 }
+
+.type-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for type.png');
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
+.where-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for where.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.status-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for endengered status.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.food-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for food.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.size-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for size.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.habitat-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for habitat.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fact-card {
+    padding: 100px;
+    text-align: center;
+    background-image: url('../Image/detail information page/cards/module for interesting fact.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .warn-box {
     width: 80%;
     margin: 0 auto;
@@ -566,32 +631,38 @@ square-question {
 
 .question-container {
     position: relative;
-    width: 50%;
+    width: 100%;
 }
 
 
 
-.overlay {
+.overlay-card {
     position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: 100%;
     height: 100%;
-    -webkit-transform: scale(0);
-    -ms-transform: scale(0);
-    transform: scale(0);
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
 }
 
-.question-container:hover .overlay {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+.overlay-card-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background-color: #008CBA;
 }
+
+
 
 .answer-text {
     color: white;

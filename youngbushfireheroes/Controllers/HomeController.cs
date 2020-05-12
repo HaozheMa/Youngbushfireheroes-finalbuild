@@ -32,15 +32,16 @@ namespace youngbushfireheroes.Controllers
 
             }
             var pw = sb.ToString();
-            if (pw.ToUpper() != "19DE5B94F7B83900D4B296D9FA491AEC")
+            if (pw.ToUpper() != "19DE5B94F7B83900D4B296D9FA491AEC" )
             {
-                ViewBag.ErrorInfo = "Incorrect password!";
-                
+                if ( pw != "") { 
+                ViewBag.ErrorInfo = "Incorrect password!";}
+
             }
             else
             {
                 return RedirectToAction("Home");
-            }
+            } 
             return View();
         }
 
@@ -48,7 +49,10 @@ namespace youngbushfireheroes.Controllers
         {
             Random random = new Random();
             int id = random.Next(2, 8);
-            
+            while(id == 4)
+            {
+                id = random.Next(2, 8);
+            }
             Species species = db.SpeciesSet.Find(id);
             if (species == null)
             {

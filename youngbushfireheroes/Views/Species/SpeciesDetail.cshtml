@@ -5,76 +5,122 @@
 }
 
 
-    <span class="centername">@Html.DisplayFor(model => model.name)</span>
-    <div class="card-row">
+<span class="centername">@Html.DisplayFor(model => model.name)</span>
+<div class="card-row">
 
-        <img class="put-center" src=@Model.pic width="600" />
+    <img class="put-center" src=@Model.pic width="600" />
 
-        
+
+</div>
+
+<hr />
+<div class="card-row">
+    <div class="card-column">
+        <div style="position:relative;">
+            <img src="~/Image/detail information page/cards/module for type.png" width="100%" />
+            <div class="font-card" style="position:absolute; z-index:2; left:150px; top:190px">@Html.DisplayFor(model => model.type)</div>
+        </div>
     </div>
+    <div class="card-column">
+        <div style="position:relative;">
+            <img src="~/Image/detail information page/cards/module for where.png" width="100%" />
+            <div class="font-card" style="position:absolute; z-index:2; left:150px; top:200px">@Html.DisplayFor(model => model.where)</div>
+        </div>
+    </div>
+    <div class="card-column">
+        <div style="position:relative;">
+
+            <img src="~/Image/detail information page/cards/module for endengered status.png" width="100%" />
+            <div class="font-card" style="position:absolute; z-index:2; left:130px; top:150px">@Html.DisplayFor(model => model.endanger_status)</div>
+        </div>
+    </div>
+</div>
 
 <hr />
 
 <div class="card-row">
     <div class="card-column">
-        <div class="card">
-            <title-in-card>Type</title-in-card>
-            <hr />
-            <span class="font-card">
-                @Html.DisplayFor(model => model.type)
-            </span>
-                
+        <div style="position:relative;">
+            <img src="~/Image/detail information page/cards/module for habitat.png" width="100%" />
+            <div class="font-card" style="position:absolute; z-index:2; left:150px; top:200px">@Html.DisplayFor(model => model.habitat)</div>
         </div>
     </div>
     <div class="card-column">
-        <div class="card">
-            <title-in-card>where</title-in-card>
-            <hr />
-            <span class="font-card">
-                @Html.DisplayFor(model => model.where)
-            </span>
+        <div style="position:relative;">
+            <img src="~/Image/detail information page/cards/module for food.png" width="100%" />
+            <div class="font-card" style="position:absolute;  left:100px; top:200px; right:150px">@Html.DisplayFor(model => model.food)</div>
         </div>
     </div>
-
     <div class="card-column">
-        <div class="card">
-            <title-in-card>habitat</title-in-card>
-            <hr />
-            <span class="font-card">
-                @Html.DisplayFor(model => model.habitat)
-            </span>
+        <div style="position:relative;" class="card">
+            <img src="~/Image/detail information page/cards/module for size.png" width="100%" />
+            <div class="font-card" style="position:absolute; z-index:2; left:220px; top:200px">@Html.DisplayFor(model => model.size)</div>
         </div>
     </div>
 </div>
-<hr />
-<div class="card-row">
-    <div class="card-column">
-        <div class="card">
-            <title-in-card>Food</title-in-card>
-            <hr />
-            <span class="font-card">
-                @Html.DisplayFor(model => model.food)
-            </span>
+<br />
+<div style="position:relative;" class="card-row">
+    <div class="card">
+        <img src="~/Image/detail information page/cards/module for interesting fact.png" width="100%" />
+        <div class="font-card" style="position:absolute; left:15%; top:50%; right:20%">@Html.DisplayFor(model => model.interest_fact)</div>
+    </div>
 </div>
-    </div>
-    <div class="card-column">
-        <div class="card">
-            <title-in-card>Size</title-in-card>
-            <hr />
-            <span class="font-card">
-                @Html.DisplayFor(model => model.size)
-            </span>
-        </div>
-    </div>
 
-    <div class="card-column">
-        <div class="card">
-            <title-in-card>interesting fact</title-in-card>
-            <hr />
-            <span class="font-card">
-                @Html.DisplayFor(model => model.interest_fact)
-                </span>
-        </div>
-    </div>
 
+<br />
+<div class="row">
+    <div class="left-column">
+        @if (Model.Id == 2)
+        {
+            var link = "/Species/SpeciesDetail/" + 8;
+            <a href="@link">
+                <img src="~/Image/detail information page/see last animal.png" width="200px" />
+            </a>
+        }
+        else if (Model.Id == 5)
+        {
+            var link = "/Species/SpeciesDetail/" + 3;
+            <a href="@link">
+                <img src="~/Image/detail information page/see last animal.png" width="200px" />
+            </a>
+        }
+        else
+        {
+            var link = "/Species/SpeciesDetail/" + (Model.Id - 1);
+            <a href="@link">
+                <img src="~/Image/detail information page/see last animal.png" width="200px" />
+            </a>
+        }
+
+    </div>
+    <div class="column">
+        <br/>
+        <a href="~/Species/Index#species-affected">
+            <img src="~/Image/detail information page/view all animals.png" width="200px" />
+        </a>
+    </div>
+    <div class="right-column">
+        @if (Model.Id == 8)
+        {
+            var link = "/Species/SpeciesDetail/" + 2;
+            <a href="@link">
+                <img src="~/Image/detail information page/see next animal.png" width="200px" />
+            </a>
+        }
+        else if (Model.Id == 3)
+        {
+            var link = "/Species/SpeciesDetail/" + 5;
+            <a href="@link">
+                <img src="~/Image/detail information page/see next animal.png" width="200px" />
+            </a>
+        }
+        else
+        {
+            var link = "/Species/SpeciesDetail/" + (Model.Id + 1);
+            <a href="@link">
+                <img src="~/Image/detail information page/see next animal.png" width="200px" />
+            </a>
+        }
+
+    </div>
 </div>

@@ -9,25 +9,43 @@
 </div>
 <div class="info-box">
     <div class="info-container">
-        <square-title>So how did the bush fire affect wildlife?</square-title>
+        <square-title>how did the bushfire affect wildlife?</square-title>
     </div>
-
 </div>
-<square-warn class="centername">⇣Try to click the fire image⇣</square-warn>
+
+<br />
+
 <div class="row">
     <div class="left-column">
-        <img class="responsive" id="house" src="~/Image/affected house.jpg" width="300" style="visibility: hidden" />
-
-    </div>
-    <div class="right-column">
 
         <img class="responsive" id="people" src="~/Image/affected people.jpg" width="300" style="visibility: hidden" />
     </div>
-</div>
+    <div class=" column">
+        <square-title style="color:black">
+            Not only
+        </square-title>
+    </div>
+    <div class="right-column">
+        <img class="responsive" id="house" src="~/Image/affected house.jpg" width="300" style="visibility: hidden" />
 
+    </div>
+</div>
+<div class="row">
+    <div class=" column">
+        <square-title style="color:black"><span style="color:red">people</span> </square-title>
+    </div>
+    <div class=" column">
+        <square-title style="color:black">  and  </square-title>
+    </div>
+    <div class=" column">
+        <square-title style="color:black"> <span style="color:red">their houses</span></square-title>
+    </div>
+</div>
+<br />
 <div class="warn-box">
-    <square-title style="color:black">Not only people and their houses</square-title>
+
     <div class="bushfire-box">
+
         <div class="fire" onclick="showFunction()">
             <div class="fire-left">
                 <div class="main-fire"></div>
@@ -46,76 +64,118 @@
             </div>
         </div>
     </div>
-    <square-warn class="warn-top">But also animals and their houses</square-warn>
+    <br />
+    <square-warn class="centername img-shake">Try to click</square-warn>
+
 
 </div>
+<hr />
 <div class="row">
     <div class="left-column">
-
-        <img class="responsive" id="animals" src="~/Image/animals affected.jpg" width="550" style="visibility: hidden" />
+        <img class="responsive" id="animals" src="~/Image/bushfire/fire - animal.png" width="350" style="visibility: hidden" />
+    </div>
+    <div class=" column">
+        <square-title style="color:black">
+            But also
+        </square-title>
     </div>
     <div class="right-column">
         <img class="responsive" id="habitat" src="~/Image/hanitat affected.jpg" width="300" style="visibility: hidden" />
     </div>
 </div>
-<hr />
-
-<square-question>How much you know about the bushfire?</square-question>
-<square-question>move your mouse on the question cards, see answers!</square-question>
-
-
 
 <div class="row">
-    <div class="module-column-left">
-        <div class="question-container">
-            <img src="~/Image/card- When did the bushfire start.PNG" alt="Avatar" class="aimage"/>
-            
+    <div class=" column">
+        <square-title style="color:black"><span style="color:red">animals</span> </square-title>
+    </div>
+    <div class=" column">
+        <square-title style="color:black">  and  </square-title>
+    </div>
+    <div class=" column">
+        <square-title style="color:black"> <span style="color:red">their houses</span></square-title>
+    </div>
+</div>
 
-            <div class="overlay">
+<hr />
+
+
+<div class="info-box">
+    <div class="info-container">
+        <square-title class="second_section">How much you know about the bushfire?</square-title>
+    </div>
+</div>
+
+<br />
+
+<div class="card-row">
+    <div class="card-column" width="100%">
+        <div class="question-container" width="100%" onclick="toggleShow1()">
+            <img src="~/Image/card- When did the bushfire start.PNG" alt="Avatar" class="aimage" />
+
+
+            <div class="overlay-card ycard">
                 <div class="answer-text">November 2019</div>
             </div>
         </div>
     </div>
-    <div class="module-column-right">
-        <div class="question-container">
+    <div class="card-column">
+        <div class="question-container" onclick="toggleShow2()">
             <img src="~/Image/card- When did the bushfire end.PNG" alt="Avatar" class="aimage" />
-           
 
-            <div class="overlay">
+
+            <div class="overlay-card zcard">
                 <div class="answer-text">February 2020</div>
             </div>
         </div>
     </div>
-</div>
-<hr />
-<div class="row">
-    <div class="module-column-left">
-        <div class="question-container">
-            <img src="~/Image/card-Which areas.PNG" alt="Avatar" class="aimage"/>
-             
+    <div class="card-column">
+        <div class="question-container" onclick="toggleShow3()">
+            <img src="~/Image/card- How many days.PNG" alt="Avatar" class="aimage" />
 
-            <div class="overlay">
-                <div class="answer-text-small">
-                    Wulgulmerang,
-                    Gelantipy,
-                    W Tree,
-                    Buchan,
-                    Wairewa,
-                    Bruthen,
-                    Sarsfield
-                    Tambo Valley
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="module-column-right">
-        <div class="question-container">
-            <img src="~/Image/card- How many days.PNG" alt="Avatar" class="aimage"/>
-             
 
-            <div class="overlay">
+            <div class="overlay-card xcard">
                 <div class="answer-text">91 days</div>
             </div>
         </div>
     </div>
 </div>
+<hr />
+<div class="info-box">
+    <div class="info-container">
+        <square-title class="second_section">where was affected by the bushfire?</square-title>
+        <img src="~/Image/Map/East Gippsland fire map_1.png" width="100%"/>
+        <img src="~/Image/Map/legend.png" width="100%" />
+    </div>
+</div>
+
+<br />
+<hr />
+
+<div class="show-box">
+    <div class="show-container">
+        <show-text>
+            Lets learn which wildlife species were affected by bushfire
+        </show-text>
+        <br />
+        <a href="~/Species/Index">
+            <img class=" responsive" src="~/Image/bushfire/linktoanimal.png" width="600" />
+        </a>
+        <h1 class="img-shake">↑click on it!↑</h1>
+    </div>
+</div>
+
+<script>
+    var toggleShow1 = function () {
+        var element = document.querySelector(".ycard");
+        element.classList.toggle("overlay-card-v");
+    }
+    var toggleShow2 = function () {
+        var element = document.querySelector(".zcard");
+        element.classList.toggle("overlay-card-v");
+    }
+    var toggleShow3 = function () {
+        var element = document.querySelector(".xcard");
+        element.classList.toggle("overlay-card-v");
+    }
+
+</script>
