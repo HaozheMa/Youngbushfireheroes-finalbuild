@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="bbcf3f7cff824e55bc4a35b544aa0c86" Name="Diagram1" >
         <EntityTypeShape EntityType="ybhModel.Species" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="ybhModel.Activity" Width="1.5" PointX="8.875" PointY="2.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

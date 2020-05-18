@@ -12,16 +12,17 @@ jQuery(document).ready(function ($) {
         var randomcolor = colors[Math.floor(Math.random() * colors.length)];
         
         $i.css({
-            "top": y - 20,
+            "top": y + 20,
             "left": x,
             "position": "absolute",
             "font-size": "5.1rem",
-            "color": "#"+randomcolor
+            "color": "#" + randomcolor,
+             "user-select": "none",
             
         });
         $("body").append($i);
         $i.animate({
-            "top": y - 180,
+            "top": y + 180,
             "opacity": 0
         },
             1500,

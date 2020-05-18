@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/26/2020 12:42:27
+-- Date Created: 05/18/2020 15:54:21
 -- Generated from EDMX file: C:\Users\Max\source\repos\youngbushfireheroes\youngbushfireheroes\Models\ybhModel.edmx
 -- --------------------------------------------------
 
@@ -22,6 +22,9 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[SpeciesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SpeciesSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -42,6 +45,18 @@ CREATE TABLE [dbo].[SpeciesSet] (
 );
 GO
 
+-- Creating table 'Activity'
+CREATE TABLE [dbo].[Activity] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [name] nvarchar(max)  NOT NULL,
+    [steps] nvarchar(max)  NOT NULL,
+    [root_link] nvarchar(max)  NOT NULL,
+    [introduction] nvarchar(max)  NOT NULL,
+    [isGif] nvarchar(max)  NOT NULL,
+    [title] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -49,6 +64,12 @@ GO
 -- Creating primary key on [Id] in table 'SpeciesSet'
 ALTER TABLE [dbo].[SpeciesSet]
 ADD CONSTRAINT [PK_SpeciesSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Activity'
+ALTER TABLE [dbo].[Activity]
+ADD CONSTRAINT [PK_Activity]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

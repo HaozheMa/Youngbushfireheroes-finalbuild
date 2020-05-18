@@ -26,5 +26,6 @@ namespace youngbushfireheroes.Models
         }
     
         public virtual DbSet<Species> SpeciesSet { get; set; }
+        public virtual DbSet<Activity> Activity { get; set; }
     }
 }

@@ -7,6 +7,7 @@
     <Schema Namespace="ybhModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ybhModelStoreContainer">
     <EntitySet Name="SpeciesSet" EntityType="ybhModel.Store.SpeciesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Activity" EntityType="ybhModel.Store.Activity" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SpeciesSet">
     <Key>
@@ -23,12 +24,25 @@
     <Property Name="type" Type="nvarchar(max)" Nullable="false" />
     <Property Name="interest_fact" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="steps" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="root_link" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="introduction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isGif" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ybhModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ybhModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SpeciesSet" EntityType="ybhModel.Species" />
+          <EntitySet Name="Activity" EntityType="ybhModel.Activity" />
         </EntityContainer>
         <EntityType Name="Species">
           <Key>
@@ -44,6 +58,18 @@
           <Property Name="size" Type="String" Nullable="false" />
           <Property Name="type" Type="String" Nullable="false" />
           <Property Name="interest_fact" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="steps" Type="String" Nullable="false" />
+          <Property Name="root_link" Type="String" Nullable="false" />
+          <Property Name="introduction" Type="String" Nullable="false" />
+          <Property Name="isGif" Type="String" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -64,6 +90,19 @@
           <ScalarProperty Name="size" ColumnName="size" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="interest_fact" ColumnName="interest_fact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activity">
+      <EntityTypeMapping TypeName="IsTypeOf(ybhModel.Activity)">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="steps" ColumnName="steps" />
+          <ScalarProperty Name="root_link" ColumnName="root_link" />
+          <ScalarProperty Name="introduction" ColumnName="introduction" />
+          <ScalarProperty Name="isGif" ColumnName="isGif" />
+          <ScalarProperty Name="title" ColumnName="title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

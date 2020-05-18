@@ -10,10 +10,13 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/UpperJS.js"></script>
     <script src="~/Scripts/clickAnimaltion.js"></script>
+    <script src="~/Scripts/phaser.min.js"></script>
+    <script src="~/Scripts/phaser.js"></script>
     <link href="~/Content/UpperCSS.css" rel="stylesheet" />
     <link href="~/Content/bubbles.css" rel="stylesheet" />
     <link href="~/Content/bushfire.css" rel="stylesheet" />
-    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"> </script>
+
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
 </head>
 
 <body class="theme-upper">
@@ -40,9 +43,12 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li ><a class="home nav_home" href="/Home/Home"></a></li>
+                        <li><a class="home nav_home" href="/Home/Home"></a></li>
                         <li><a class="nav_bushfire bushfire" href="/Bushfire"></a></li>
                         <li><a class="nav_species" href="/Species"></a></li>
+                        <li><a class="nav_activity" href="/Activities"></a></li>
+                        <li><a class="nav_game" href="/Game"></a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -55,12 +61,24 @@
                 <footer class="upper-footer">
                     <div class="row">
                         <div class="column">
-                            <img src="~/Image/logo.png" width="250px" class="responsive"/>
+                            <img src="~/Image/logo.png" width="250px" class="responsive" />
                         </div>
                         <div class="column">
                             <h1 class="footer-title">ABOUT THIS SITE</h1>
                             <hr />
-                            <h3 class="footer-content">This is an educational website for children of Gippsland to learn about Bush fires, how it affected wildlife and ways to help wildlife and their habitat.</h3>
+                            <h3 class="footer-content">
+                                This is an educational website for children of Gippsland to learn about Bush fires, how it affected wildlife and ways to help wildlife and their habitat.
+                            </h3>
+                        </div>
+
+                        <div class="column">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <a href="/Home/About">
+                                <img src="~/Image/Map/about us - know more.png" width="250px" class="responsive" />
+                            </a>
                         </div>
                     </div>
                     <p>&copy; @DateTime.Now.Year - Young Bushfire Heroes！</p>
