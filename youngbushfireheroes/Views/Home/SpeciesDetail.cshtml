@@ -52,14 +52,14 @@
         </div>
     </div>
     <div class="card-column">
-        <div style="position:relative;" >
+        <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for size.png" width="100%" />
             <div class="font-card" style="position:absolute; z-index:2; left:220px; top:200px">@Html.DisplayFor(model => model.size)</div>
         </div>
     </div>
 </div>
 <br />
-<div style="position:relative;"  >
+<div style="position:relative;">
     <div class="card">
         <img src="~/Image/detail information page/cards/module for interesting fact.png" width="100%" />
         <div class="font-card" style="position:absolute; left:15%; top:50%; right:20%">@Html.DisplayFor(model => model.interest_fact)</div>
@@ -70,20 +70,14 @@
 <br />
 <div class="row">
     <div class="left-column">
-        @if (Model.Id == 2)
+        @if (Model.Id == 1)
         {
-            var link = "/Species/SpeciesDetail/" + 8;
+            var link = "/Species/SpeciesDetail/" + 6;
             <a href="@link">
                 <img src="~/Image/detail information page/see last animal.png" width="200px" />
             </a>
         }
-        else if (Model.Id == 5)
-        {
-            var link = "/Species/SpeciesDetail/" + 3;
-            <a href="@link">
-                <img src="~/Image/detail information page/see last animal.png" width="200px" />
-            </a>
-        }
+
         else
         {
             var link = "/Species/SpeciesDetail/" + (Model.Id - 1);
@@ -100,20 +94,14 @@
         </a>
     </div>
     <div class="right-column">
-        @if (Model.Id == 8)
+        @if (Model.Id == 6)
         {
-            var link = "/Species/SpeciesDetail/" + 2;
+            var link = "/Species/SpeciesDetail/" + 1;
             <a href="@link">
                 <img src="~/Image/detail information page/see next animal.png" width="200px" />
             </a>
         }
-        else if (Model.Id == 3)
-        {
-            var link = "/Species/SpeciesDetail/" + 5;
-            <a href="@link">
-                <img src="~/Image/detail information page/see next animal.png" width="200px" />
-            </a>
-        }
+
         else
         {
             var link = "/Species/SpeciesDetail/" + (Model.Id + 1);

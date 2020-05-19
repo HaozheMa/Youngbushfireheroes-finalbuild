@@ -143,10 +143,37 @@
 <div class="info-box">
     <div class="info-container">
         <square-title class="second_section">which area was affected by the bushfire?</square-title>
-        <img src="~/Image/Map/East Gippsland fire map_1.png" width="100%"/>
-        <img src="~/Image/Map/legend.png" width="100%" />
     </div>
 </div>
+<br />
+
+<div class="col-lg-10">
+    <img id="mapshow" src="~/Image/Map/East Gippsland fire map_1.png" width="100%" />
+</div>
+
+<div class="col-lg-1">
+    <a href="javascript:void(0)"><h3 style="font-family: 'Kidzone'" onclick="Buchan()">Buchan</h3></a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Bruthen()">Bruthen</h3>
+    </a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Gelantipy()">Gelantipy</h3>
+    </a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Sarsfield()">Sarsfield</h3>
+    </a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Tambo()">Tambo Valley</h3>
+    </a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Tree()">W Tree</h3>
+    </a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Wairewa()">Wairewa</h3>
+    </a>
+    <a href="javascript:void(0)"><h3 style="font-family: 'Kidzone'" onclick="Wulgulmerang()">Wulgulmerang</h3></a>
+</div>
+<img src="~/Image/Map/legend.png" width="100%" />
 
 <br />
 <hr />
@@ -162,9 +189,33 @@
         </a>
         <h1 class="img-shake">↑click on it!↑</h1>
     </div>
-</div>
-
+</div> 
 <script>
+    function Buchan() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Buchan.jpg");
+    }
+    function Bruthen() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Bruthen.jpg");
+    }
+    function Gelantipy() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Gelantipy.jpg");
+    }
+    function Sarsfield() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/sarsfield.jpg");
+    }
+    function Tambo() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Tambo Valley.jpg");
+    }
+    function Tree() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/W tree.jpg");
+    }
+    function Wairewa() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Wairewa.jpg");
+    }
+    function Wulgulmerang() {
+        document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Wulgulmerang.jpg");
+    }
+
     var toggleShow1 = function () {
         var element = document.querySelector(".ycard");
         element.classList.toggle("overlay-card-v");

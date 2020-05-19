@@ -15,10 +15,10 @@
     .tab {
         float: left;
         border: 1px solid #ff6b66;
-        
+        border-right: hidden;
         background-color: #ff6b66;
-        width: 30%;
-        height: 300px;
+        width: 20%;
+        height: auto;
     }
 
         /* Style the buttons inside the tab */
@@ -51,10 +51,9 @@
         float: left;
         padding: 0px 12px;
         border: 1px solid #ff6b66;
-        border-right: hidden;
-        width: 70%;
-        border-left: none;
-        height: 300px;
+        
+        width: 80%; 
+        height: auto;
         display: none;
     }
 
@@ -76,14 +75,14 @@
 
 </div>
 
-<div id="kids" class="tabcontent">
+<div id="kids" class="tabcontent" style="display:block">
     <h3>For kids</h3>
     <p>
         Hi kid! Welcome to Young Bushfire Heroes! You can learn and play here!
     </p>
     <p>
         In this website, you can learn the knowledge of bushfires that happened in 2019-2020. In the bushfire, many cute wildlife were affected. You can also learn about those animals.
-    </p> 
+    </p>
     <p>
         Do you want to take action to help the animals by yourself? Yes, you can! We provide many activities for you to learn how to help the animals. If you want your daddy and mommy to be with you, just invite them! We have two tutorials for your family to do together.
     </p>
@@ -94,14 +93,23 @@
         Are you ready to be a bushfire hero? Let’s go!
     </p>
     <a href="/Home/Home">click here to start your trip</a>
+    <br />
+    <br />
+    <br /> 
 </div>
 
 <div id="parent" class="tabcontent">
     <h3>For parents</h3>
     <p>
         Hi! Welcome to Young Bushfire Heroes!
+    </p>
+    <p>
         Our website is aimed at providing an interactive platform for children to learn about Gippsland bushfire, its effects on wildlife and ways to help in rebuilding activities. We collect the information regarding bushfire, its affected animals from an authoritative website and government open dataset. The tutorials we provide in the website are based on suggestions of professional kid education websites, as well as the tutorial contents.
+    </p>
+    <p>
         As parent, if you want to accompany your kids, you can join the tutorial activities for parent and kids, where are two activities that require to use tools (such as hammer) to DIY birdbox and water station for animal put in your backyard. We would like to invite you to join your kid when they want to learn these lessons, in which way you can protect your kid from potential risk and you can get joy at the same time. The kid individual tutorial are more of informative lessons. They can get knowledge by reading and watching.
+    </p>
+    <p>
         We also provide a game to test whether kids grasp the knowledge that they learned on the website. The game is simple but significant to review the learning.
     </p>
 </div>
@@ -113,8 +121,10 @@
 <script>
     function openBlock(evt, UserName) {
         var i, tabcontent, tablinks;
+        
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
+             
             tabcontent[i].style.display = "none";
         }
         tablinks = document.getElementsByClassName("tablinks");
