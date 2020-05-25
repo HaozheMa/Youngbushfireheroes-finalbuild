@@ -10,6 +10,14 @@
         <square-title>@Model.name</square-title>
     </div>
 </div>
+
+<hr />
+<br />
+<div class="info-box">
+    <div class="info-container">
+        <square-title>@Model.introduction</square-title>
+    </div>
+</div>
 <br />
 <style>
     body {
@@ -108,12 +116,14 @@
     @for (var i = 1; i <= Int32.Parse(Model.steps); i++)
     {
         var image1link = Model.root_link + i;
+        var audiolink = Model.root_link + "s" + i + ".wav";
         var image2link = Model.root_link + i + " text";
         var check1 = i + "p";
         var check2 = i + "t";
         var filename1 = ".png";
         var filename2 = ".png";
         var isGIF = "";
+        var functionplay = "playAudio" + i + "()";
         if (Model.isGif.Contains(check1))
         {
             filename1 = ".gif";
@@ -132,26 +142,52 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8" style="text-align:center">
                         @if (isGIF == "isGIF")
                         {
-                            <img class="@isGIF" src="@image1link" width="100%" onclick="replay1()" />
-                            <h4>click to see it again</h4>
+                            <img class="@isGIF" src="@image1link" width="100%" />
+                            <br />
+                            <img src="~/Image/tutorial/play again.png" onclick="replay1()" width="20%" />
                         }
                         else
                         {
                             <img src="@image1link" width="100%" />
                         }
-
+                    
+                        
                     </div>
                     <div class="col-lg-4">
                         <img src="@image2link" width="100%" />
+                        <br />
+
+                        <audio class="audios" id="speaker-@i">
+                            <source src="@audiolink" />
+                        </audio>
+                        @{
+                            var filePath = Model.root_link + "s" + i + ".wav";
+                            var absolutePath = System.Web.HttpContext.Current.Server.MapPath("~/" + filePath);
+
+                       
+
+                            if (System.IO.File.Exists(absolutePath))
+                            {
+                                <div style="text-align:center">
+                                    <img class="speakericon" src="~/Image/speaker.png" width="50" style="cursor:pointer;" onclick="@functionplay" />
+                                </div>
+                            }
+                        }
+
+
                     </div>
                 </div>
+                <hr />
                 @if (i < Int32.Parse(Model.steps))
                 {
-                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                    <div style="text-align:center">
+                        <img class=" nextBtn" src="~/Image/tutorial/next.png" width="15%" />
+                    </div>
                 }
+
 
             </div>
         </div>
@@ -161,7 +197,7 @@
 <br />
 <div class="row">
     <div class="left-column">
-         <br/>
+        <br />
     </div>
     <div class="column">
         <br />
@@ -172,11 +208,10 @@
     <div class="right-column">
         <br />
     </div>
-</div> 
+</div>
 <script>
 
     $(document).ready(function () {
-
         var navListItems = $('div.setup-panel div a'),
             allWells = $('.setup-content'),
             allNextBtn = $('.nextBtn');
@@ -210,6 +245,7 @@
         });
 
         $('div.setup-panel div a.btn-success').trigger('click');
+
     });
 </script>
 <script>
@@ -222,4 +258,39 @@
 
 
     }
+</script>
+<script>
+    var speaker = document.getElementsByClassName("audios");
+    var playcheck = true;
+
+
+   @for (var i = 1; i <= Int32.Parse(Model.steps); i++)
+   {
+       var functionplay = "playAudio" + i + "()";
+       var j = i - 1;
+       <text>
+       function @functionplay
+       {
+           if (playcheck)
+           {
+               speaker[@j].play();
+               playcheck = false;
+           }
+           else
+           {
+               speaker[@j].pause();
+               speaker[@j].currentTime = 0;
+               playcheck = true;
+           }
+    }
+    speaker[@j].addEventListener("playing", function () {
+        playcheck = false;
+    });
+    speaker[@j].addEventListener("pause", function () {
+        playcheck = true;
+    });
+
+
+    </text>
+   }
 </script>

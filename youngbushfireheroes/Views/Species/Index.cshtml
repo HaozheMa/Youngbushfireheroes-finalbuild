@@ -4,26 +4,37 @@
     ViewBag.Title = "Species - ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container" id="bubbles">
-
-</div>
-
-
-<div class="container" id="bubbles">
-
-</div>
+<br />
+<img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 <div class="info-box">
     <div class="info-container">
-        <square-title>What were the effects of this bush fire?</square-title>
-        <h2>Animals population is decreased </h2>
-        <img id="number" src="~/Image/animations/animal-number-decrease-1.gif" width="100%" onclick="replay1()" />
-        <h3>click picture to see it again</h3>
+        <square-title>What were the effects of the bushfires on animals?</square-title>
+    </div>
+</div>
+<br />
+<div class="info-box">
+    <div class="info-container">
+        <h2>Animal population has decreased </h2>
+        <img id="number" src="~/Image/animations/animal-number-decrease-1.gif" width="100%" />
+        <img src="~/Image/tutorial/play again.png" style="cursor:pointer;" onclick="replay1()" width="20%" />
+       
+    </div>
+</div>
+<br />
+<div class="info-box">
+    <div class="info-container">
         <h2>Animals lost their habitat</h2>
-        <img id="habitat" src="~/Image/animations/animal-lost-habitat-1.gif" width="100%" onclick="replay2()" />
-        <h3>click picture to see it again</h3>
+        <img id="habitat" src="~/Image/animations/animal-lost-habitat-1.gif" width="100%"   />
+        <img src="~/Image/tutorial/play again.png" style="cursor:pointer;" onclick="replay2()" width="20%" />
+         
+    </div>
+</div>
+<br />
+<div class="info-box">
+    <div class="info-container">
         <h2>They don't have enough food and water</h2>
-        <img id="eating" src="~/Image/animations/animal-lost-food_water-1.gif" width="100%" onclick="replay3()" />
-        <h3>click picture to see it again</h3>
+        <img id="eating" src="~/Image/animations/animal-lost-food_water-1.gif" width="100%" />
+        <img src="~/Image/tutorial/play again.png" style="cursor:pointer;" onclick="replay3()" width="20%" /> 
     </div>
 </div>
 
@@ -31,16 +42,19 @@
 <div class="info-box" id="species-affected">
     <div class="info-container">
         <square-title style="text-align:center">
-            Species affected in gippsland
+            Species affected in East Gippsland
         </square-title>
     </div>
 </div>
 <div class="row">
     <div class="module-column-left">
-        <img src="~/Image/rock wallaby module.png" width="900" class="responsive" />
+        <a href="/Species/SpeciesDetail/4"> 
+            <img src="~/Image/rock wallaby module.png" width="900" class="responsive" />
+            
+        </a>
     </div>
     <div class="right-column">
-        <h1 class="module-text"> Want to know more about Wallabies? </h1>
+        <h1 class="module-text"> Want to know more about Wallabies? </h1> 
         <a href="/Species/SpeciesDetail/4">
             <img src="~/Image/see more-wallaby.png" width="200" class="responsive img-shake" />
         </a>
@@ -55,13 +69,17 @@
         </a>
     </div>
     <div class="module-column-right">
-        <img src="~/Image/potoroo module.png" width="900" class="responsive" />
+        <a href="/Species/SpeciesDetail/1">
+            <img src="~/Image/potoroo module.png" width="900" class="responsive" />
+        </a>
     </div>
 </div>
 <hr />
 <div class="row">
     <div class="module-column-left">
-        <img src="~/Image/Koala module.png" width="850" class="responsive" />
+        <a href="/Species/SpeciesDetail/3">
+            <img src="~/Image/Koala module.png" width="850" class="responsive" />
+        </a>
     </div>
     <div class="right-column">
         <h1 class="module-text"> Want to know more about Koala? </h1>
@@ -79,13 +97,17 @@
         </a>
     </div>
     <div class="module-column-right">
-        <img src="~/Image/Greater Glider module.png" width="900" class="responsive" />
+        <a href="/Species/SpeciesDetail/2">
+            <img src="~/Image/Greater Glider module.png" width="900" class="responsive" />
+        </a>
     </div>
 </div>
 <hr />
 <div class="row">
     <div class="module-column-left">
-        <img src="~/Image/Python module.png" width="850" class="responsive" />
+        <a href="/Species/SpeciesDetail/5">
+            <img src="~/Image/Python module.png" width="850" class="responsive" />
+        </a>
 
     </div>
     <div class="right-column">
@@ -94,22 +116,23 @@
             <img src="~/Image/see more-python.png" width="200" class="responsive img-shake" />
 
         </a>
-
+        
     </div>
 </div>
 <hr />
 
 <div class="row">
     <div class="left-column">
-        <h1 class="module-text"> Want to know more about quoll? </h1>
+        <h1 class="module-text"> Want to know more about Quoll? </h1>
         <a href="/Species/SpeciesDetail/6">
             <img src="~/Image/see more-quoll.png" width="200" class="responsive img-shake" />
 
         </a>
     </div>
     <div class="module-column-right">
-        <img src="~/Image/quoll module.png" width="900" class="responsive" />
-
+        <a href="/Species/SpeciesDetail/6">
+            <img src="~/Image/quoll module.png" width="900" class="responsive" />
+        </a>
     </div>
 </div>
 
@@ -118,13 +141,13 @@
 <div class="show-box">
     <div class="show-container">
         <show-text>
-            Lets learn some ways to help the animals and rebuilding after bushfire
+            Let's learn some ways to help the animals and rebuilding after bushfire
         </show-text>
         <br />
         <a href="/Activities">
             <img class=" responsive" src="~/Image/animals/picture link to learning.png" width="600" />
         </a>
-        <h1 class="img-shake">↑click on it!↑</h1>
+        <h1 class="img-shake">↑click on this picture!↑</h1>
     </div>
 </div>
 

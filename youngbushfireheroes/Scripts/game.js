@@ -25,6 +25,11 @@ var yesp;
 var letstry;
 var helpu;
 var playMis = true;
+var bgmusic;
+var glass;
+var bag;
+var banana;
+var diaAudio;
 //main scene: choose game
 var SceneA = new Phaser.Class({
 
@@ -108,14 +113,15 @@ var SceneA = new Phaser.Class({
 
     create: function () {
         if (playMis) {
-            var jungle = this.sound.add('mic');
+            bgmusic = this.sound.add('mic');
 
-            jungle.play({
+            bgmusic.play({
                 loop: true
             });
-
+            bgmusic.setVolume(0.4);
             playMis = false;
         }
+        //
 
         var background = this.add.image(450, 250, 'background');
         background.setScale(0.5);
@@ -232,11 +238,18 @@ var SceneB = new Phaser.Class({
         this.load.image('can', '../assets/game/Can.png');
         this.load.image('egg', '../assets/game/Egg.png');
         this.load.image('paper', '../assets/game/Paper.png');
+        this.load.image('Glass', '../assets/game/Recycle game/Images/Glass.png');
+        this.load.image('bag', '../assets/game/Recycle game/Images/Plastic bag.png');
+        this.load.image('banana', '../assets/game/Recycle game/Images/Banana peel.png');
         this.load.image('endrecycle', '../assets/game/thank you for helping.png');
         this.load.image('tryother', '../assets/game/try another game.png');
         this.load.image('yes', '../assets/game/preamble - “Yes”.png');
         this.load.image('letstry', '../assets/game/let_s try.png');
         this.load.image('helpu', '../assets/game/let me help you.png');
+        this.load.audio('bAudio1', '../Audio/game/recycle/d1.wav');
+        this.load.audio('bAudio2', '../Audio/game/recycle/d2.wav');
+        this.load.audio('bAudio3', '../Audio/game/recycle/d3.wav');
+        this.load.audio('bAduio14', '../Audio/game/plant tree/d14.wav');
 
     },
 
@@ -245,7 +258,9 @@ var SceneB = new Phaser.Class({
         background.setScale(0.5);
         var child = this.add.image(150, 300, 'child').setInteractive();
         dia1 = this.add.image(400, 150, 'dialog1').setInteractive();
-        dia1.setScale(0.6);
+        dia1.setScale(0.6); 
+        diaAudio = this.sound.add('bAudio1');
+        diaAudio.play();
         yesp = this.add.image(700, 400, 'yes').setInteractive();
         yesp.setScale(0.5);
         yesp.once('pointerup', dia2show, this);
@@ -299,35 +314,28 @@ var SceneB = new Phaser.Class({
                     timedEvent = this.time.addEvent({ delay: 2000, callback: diaDestroy, callbackScope: this });
                 }
             }
-            else {
 
-                if (gameObject.name == "can") {
-                    gameObject.x = 500;
-                    gameObject.y = 450;
-                } else if (gameObject.name == "egg") {
-                    gameObject.x = 550;
-                    gameObject.y = 400;
-                } else if (gameObject.name == "paper") {
-                    gameObject.x = 750;
-                    gameObject.y = 400;
-                }
-            }
 
         }, this);
 
     },
 
     update: function () {
-        if (clearTrigger == 3) {
+        if (clearTrigger == 6) {
+            diahow.destroy();
+            
             recycle.setActive(false).setVisible(false);
             regular.setActive(false).setVisible(false);
             endrecycle = this.add.image(400, 150, 'endrecycle');
             endrecycle.setScale(0.7);
+            diaAudio.destroy();
+            diaAudio = this.sound.add('bAduio14');
+            diaAudio.play();
             var tryother = this.add.image(700, 400, 'tryother').setInteractive();
             tryother.setScale(0.4);
             tryother.once('pointerup', function () {
                 clearTrigger == 0;
-                this.scene.restart();
+                diaAudio.destroy();
                 this.scene.start('sceneA');
             }, this);
         }
@@ -351,8 +359,20 @@ function dia2show() {
     egg = this.physics.add.sprite(550, 400, "egg").setInteractive();
     egg.setScale(0.5);
     egg.name = "egg";
+    glass = this.physics.add.sprite(450, 450, "Glass").setInteractive();
+    glass.name = "Glass";
+    glass.setScale(0.5);
+    bag = this.physics.add.sprite(750, 300, "bag").setInteractive();
+    bag.setScale(0.5);
+    bag.name = "bag";
+    banana = this.physics.add.sprite(650, 400, "banana").setInteractive();
+    banana.setScale(0.5);
+    banana.name = "banana";
     dia2 = this.add.image(400, 150, 'dialog2').setInteractive();
     dia2.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('bAudio2');
+    diaAudio.play();
     letstry = this.add.image(700, 400, 'letstry').setInteractive();
     letstry.setScale(0.4);
     letstry.once('pointerup', dia3show, this);
@@ -363,27 +383,27 @@ function dia3show() {
     letstry.destroy();
     dia3 = this.add.image(400, 100, 'dialog3').setInteractive();
     dia3.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('bAudio3');
+    diaAudio.play();
     helpu = this.add.image(700, 400, 'helpu').setInteractive();
     helpu.setScale(0.5);
-    helpu.once('pointerup', diaHowshow, this);
+    helpu.once('pointerup', gamestart, this);
 }
 
 
-function diaHowshow() {
+
+function gamestart() {
     dia3.destroy();
     helpu.destroy();
-    diahow = this.add.image(500, 150, 'how').setInteractive();
-    diahow.setScale(0.6);
-    letstry = this.add.image(700, 400, 'letstry').setInteractive();
-    letstry.setScale(0.4);
-    letstry.once('pointerup', gamestart, this);
-}
-function gamestart() {
-    diahow.destroy();
-    letstry.destroy();
+    diahow = this.add.image(700, 100, 'how').setInteractive();
+    diahow.setScale(0.5);
     this.input.setDraggable(can);
     this.input.setDraggable(paper);
     this.input.setDraggable(egg);
+    this.input.setDraggable(glass);
+    this.input.setDraggable(bag);
+    this.input.setDraggable(banana);
 
 }
 
@@ -403,7 +423,7 @@ function ckeckRecycle(gameObject) {
 }
 
 function isRecycle(gameObject) {
-    if (gameObject.name == "can" || gameObject.name == "paper") {
+    if (gameObject.name == "can" || gameObject.name == "paper" || gameObject.name == "Glass" || gameObject.name == "bag") {
         return true;
     }
     return false;
@@ -456,7 +476,7 @@ var SceneC = new Phaser.Class({
         },
 
     preload: function () {
-         
+
         this.load.image('background', '../assets/game/Backyard.png');
         this.load.image('child', "../assets/game/Boy.png");
         this.load.image('cDia1', '../assets/game/plant tree game/game image/dialog 1.png');
@@ -485,7 +505,18 @@ var SceneC = new Phaser.Class({
         this.load.image('confirm', '../assets/game/plant tree game/game image/confirm.png');
         this.load.image('tryAgain', '../assets/game/plant tree game/game image/Reset and try again.png');
         this.load.image('otherGame', '../assets/game/plant tree game/game image/try another game.png');
-
+        this.load.audio('cAduio1', '../Audio/game/plant tree/d1.wav');
+        this.load.audio('cAduio2', '../Audio/game/plant tree/d2.wav');
+        this.load.audio('cAduio4', '../Audio/game/plant tree/d4.wav');
+        this.load.audio('cAduio6', '../Audio/game/plant tree/d6.wav');
+        this.load.audio('cAduio7', '../Audio/game/plant tree/d7.wav');
+        this.load.audio('cAduio8', '../Audio/game/plant tree/d8.wav');
+        this.load.audio('cAduio9', '../Audio/game/plant tree/d9.wav');
+        this.load.audio('cAduio13', '../Audio/game/plant tree/d13.wav');
+        this.load.audio('cAduio14', '../Audio/game/plant tree/d14.wav');
+        this.load.audio('reason56', '../Audio/game/plant tree/reason 5 6.wav');
+        this.load.audio('notsuit', '../Audio/game/plant tree/not suitable place.wav');
+        this.load.audio('tryAgain', '../Audio/game/plant tree/tryAgain.wav');
     },
     create: function () {
         var background = this.add.image(450, 250, 'background');
@@ -493,6 +524,9 @@ var SceneC = new Phaser.Class({
         var child = this.add.image(150, 300, 'child');
         cDia1 = this.add.image(400, 150, 'cDia1');
         cDia1.setScale(0.6);
+        
+        diaAudio = this.sound.add('cAduio1');
+        diaAudio.play();
         cNext = this.add.image(700, 400, 'next').setInteractive();
         cNext.setScale(0.5);
         cNext.once('pointerup', c2Sence, this);
@@ -515,6 +549,10 @@ var SceneC = new Phaser.Class({
             } else {
                 suitableHint = this.add.image(450, 300, 'notsuit');
                 suitableHint.setScale(0.5);
+
+                diaAudio.destroy();
+                diaAudio = this.sound.add('tryAgain');
+                diaAudio.play();
                 tryAgain = this.add.image(450, 350, 'tryAgain').setInteractive();
                 tryAgain.setScale(0.4);
                 tryAgain.once('pointerup', clearTree, this);
@@ -543,8 +581,11 @@ var SceneC = new Phaser.Class({
 function c2Sence() {
     cDia1.destroy();
     cNext.destroy();
+    diaAudio.destroy();
     cDia2 = this.add.image(400, 150, 'cDia2');
     cDia2.setScale(0.6);
+    diaAudio = this.sound.add('cAduio2');
+    diaAudio.play();
     cNext = this.add.image(700, 400, 'next').setInteractive();
     cNext.setScale(0.5);
     cNext.once('pointerup', c3Sence, this);
@@ -554,6 +595,9 @@ function c2Sence() {
 function c3Sence() {
     cDia2.destroy();
     cNext.destroy();
+    diaAudio.destroy();
+    diaAudio = this.sound.add('cAduio4');
+    diaAudio.play();
     cDia3 = this.add.image(400, 150, 'cDia4');
     cDia3.setScale(0.6);
     native = this.add.image(750, 200, 'native').setInteractive();
@@ -572,6 +616,9 @@ function nativeChoice() {
     native.destroy();
     nonnative.destroy();
     plantall.destroy();
+    diaAudio.destroy();
+    diaAudio = this.sound.add('cAduio7');
+    diaAudio.play();
     cDia7 = this.add.image(400, 150, 'cDia7');
     cDia7.setScale(0.5);
     cNext = this.add.image(700, 400, 'next').setInteractive();
@@ -584,14 +631,18 @@ function wrongChoice() {
     native.destroy();
     nonnative.destroy();
     plantall.destroy();
-    cDia5 = this.add.image(300, 150, 'cDia5');
+    cDia5 = this.add.image(300, 150, 'cDia6');
     cDia5.setScale(0.4);
     var wrReason = this.add.image(650, 200, 'wrongreason');
     wrReason.setScale(0.5);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('reason56');
+    diaAudio.play();
     var restart = this.add.image(700, 400, 'restart').setInteractive();
     restart.setScale(0.5);
     restart.once('pointerup', function () {
         this.scene.restart();
+        diaAudio.destroy();
     }, this);
 }
 
@@ -600,6 +651,9 @@ function cNextPhase() {
     cNext.destroy();
     cDia8 = this.add.image(200, 100, 'cDia8');
     cDia8.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('cAduio8');
+    diaAudio.play();
     sbackground = this.add.image(500, 250, 'slist');
     sbackground.setScale(0.5);
     cNext = this.add.image(730, 450, 'next').setInteractive();
@@ -610,6 +664,9 @@ function cNextPhase() {
 function preplantGame() {
     cDia8.destroy();
     cNext.destroy();
+    diaAudio.destroy();
+    diaAudio = this.sound.add('cAduio9');
+    diaAudio.play();
     cDia9 = this.add.image(200, 100, 'cDia9');
     cDia9.setScale(0.4);
     cTry = this.add.image(730, 450, 'letstry').setInteractive();
@@ -638,6 +695,7 @@ function clearTree() {
     tree4.destroy();
     suitableHint.destroy();
     tryAgain.destroy();
+
     cbox.destroy();
     cbox = this.add.image(700, 130, 'box');
     cbox.setScale(0.5);
@@ -660,6 +718,9 @@ function endPlant() {
     confirmButton.setActive(false).setVisible(false);
     cDia13 = this.add.image(400, 150, 'cDia13');
     cDia13.setScale(0.5);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('cAduio13');
+    diaAudio.play();
     cNext = this.add.image(730, 450, 'next').setInteractive();
     cNext.setScale(0.5);
     cNext.once('pointerup', thankPlant, this);
@@ -670,6 +731,9 @@ function thankPlant() {
     cNext.destroy();
     cDia14 = this.add.image(400, 150, 'cDia14');
     cDia14.setScale(0.5);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('cAduio14');
+    diaAudio.play();
     var otherGame = this.add.image(730, 450, 'otherGame').setInteractive();
     otherGame.setScale(0.5);
     otherGame.once('pointerup', function () {
@@ -772,7 +836,6 @@ var SceneD = new Phaser.Class({
             percentText.destroy();
             assetText.destroy();
         });
-
         this.load.image('dbackground', '../assets/game/waterbowl game/image of waterbowl game/background pic.png');
         this.load.image('child', "../assets/game/Boy.png");
         this.load.image('dDia1', '../assets/game/waterbowl game/image of waterbowl game/dialog 1.png');
@@ -804,6 +867,22 @@ var SceneD = new Phaser.Class({
         this.load.image('bowlhint', '../assets/game/waterbowl game/image of waterbowl game/notification 13.png');
         this.load.image('tryAgaind', '../assets/game/waterbowl game/image of waterbowl game/button try again.png');
         this.load.image('tryOther', '../assets/game/waterbowl game/image of waterbowl game/button try another.png');
+        this.load.audio('daudio1', '../Audio/game/waterbowl/d1.wav');
+        this.load.audio('daudio2', '../Audio/game/waterbowl/d2.wav');
+        this.load.audio('daudio3', '../Audio/game/waterbowl/d3.wav');
+        this.load.audio('daudio4', '../Audio/game/waterbowl/d4.wav');
+        this.load.audio('daudio5', '../Audio/game/waterbowl/d5.wav');
+        this.load.audio('daudio6', '../Audio/game/waterbowl/d6 8.wav');
+        this.load.audio('daudio7', '../Audio/game/waterbowl/d7.wav');
+        this.load.audio('daudio8', '../Audio/game/waterbowl/d6 8.wav');
+        this.load.audio('daudio9', '../Audio/game/waterbowl/d9.wav');
+        this.load.audio('daudio11', '../Audio/game/waterbowl/d11.wav');
+        this.load.audio('daudio14', '../Audio/game/waterbowl/d14.wav');
+        this.load.audio('daudion6', '../Audio/game/waterbowl/n6.wav');
+        this.load.audio('daudion8', '../Audio/game/waterbowl/n8.wav');
+        this.load.audio('daudion11', '../Audio/game/waterbowl/n11.wav');
+        this.load.audio('daudion13', '../Audio/game/waterbowl/n13.wav');
+         
     },
     create: function () {
         var background = this.add.image(450, 250, 'dbackground');
@@ -811,6 +890,8 @@ var SceneD = new Phaser.Class({
         var child = this.add.image(750, 350, 'child').setInteractive();
         dDia1 = this.add.image(400, 150, 'dDia1');
         dDia1.setScale(0.6);
+        diaAudio = this.sound.add('daudio1');
+        diaAudio.play();
         dNext = this.add.image(200, 450, 'next').setInteractive();
         dNext.setScale(0.5);
         dNext.once('pointerup', d2Sence, this);
@@ -833,6 +914,9 @@ var SceneD = new Phaser.Class({
                 bowlBox.destroy();
                 dDia14 = this.add.image(700, 100, 'dDia14');
                 dDia14.setScale(0.4);
+                diaAudio.destroy();
+                diaAudio = this.sound.add('daudio14');
+                diaAudio.play();
                 dNext = this.add.image(450, 450, 'next').setInteractive();
                 dNext.setScale(0.5);
                 dNext.once('pointerup', endBowl, this);
@@ -840,6 +924,9 @@ var SceneD = new Phaser.Class({
                 this.input.setDraggable(bowl, false);
                 bowlHint = this.add.image(450, 100, 'bowlhint');
                 bowlHint.setScale(0.5);
+                diaAudio.destroy();
+                diaAudio = this.sound.add('daudion13');
+                diaAudio.play();
                 bowlAgain = this.add.image(450, 150, 'tryAgaind').setInteractive();
                 bowlAgain.setScale(0.4);
                 bowlAgain.once('pointerup', clearBowl, this);
@@ -854,6 +941,9 @@ var SceneD = new Phaser.Class({
 function d2Sence() {
     dDia1.destroy();
     dNext.destroy();
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio2');
+    diaAudio.play();
     dDia2 = this.add.image(400, 150, 'dDia2');
     dDia2.setScale(0.6);
     dNext = this.add.image(200, 450, 'next').setInteractive();
@@ -865,6 +955,9 @@ function d3Sence() {
     dNext.destroy();
     dDia3 = this.add.image(400, 150, 'dDia3');
     dDia3.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio3');
+    diaAudio.play();
     dNext = this.add.image(200, 450, 'next').setInteractive();
     dNext.setScale(0.5);
     dNext.once('pointerup', d4Sence, this);
@@ -874,6 +967,9 @@ function d4Sence() {
     dNext.destroy();
     dDia4 = this.add.image(400, 150, 'dDia4');
     dDia4.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio4');
+    diaAudio.play();
     dNext = this.add.image(200, 400, 'yespl').setInteractive();
     dNext.setScale(0.5);
     dNext.once('pointerup', chooseMaterial, this);
@@ -883,6 +979,9 @@ function chooseMaterial() {
     dNext.destroy();
     dDia5 = this.add.image(500, 150, 'dDia5');
     dDia5.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio5');
+    diaAudio.play();
     cbowl = this.add.image(150, 200, 'mchoice1').setInteractive();
     cbowl.setScale(0.4);
     sbowl = this.add.image(150, 320, 'mchoice2').setInteractive();
@@ -897,7 +996,9 @@ function dgoodChoice() {
     sbowl.destroy();
     dDia7 = this.add.image(500, 150, 'dDia7');
     dDia7.setScale(0.5);
-
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio7');
+    diaAudio.play();
     choiceBowl1 = this.add.image(150, 200, 'shallow').setInteractive();
     choiceBowl1.setScale(0.4);
     choiceBowl2 = this.add.image(150, 320, 'deep').setInteractive();
@@ -916,6 +1017,9 @@ function dwrongChoice() {
     sbowl.destroy();
     dDia6 = this.add.image(700, 100, 'dDia6');
     dDia6.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio6');
+    diaAudio.play();
     var dwrong = this.add.image(400, 300, 'reason6');
     dwrong.setScale(0.5);
     dNext = this.add.image(100, 450, 'drestart').setInteractive();
@@ -932,6 +1036,9 @@ function dgoodChoice2() {
     choiceBowl3.destroy();
     dDia9 = this.add.image(400, 150, 'dDia9');
     dDia9.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio9');
+    diaAudio.play();
     dNext = this.add.image(200, 450, 'next').setInteractive();
     dNext.setScale(0.5);
     dNext.once('pointerup', d6Sence, this);
@@ -943,6 +1050,9 @@ function dgoodChoice3() {
     choiceBowl3.destroy();
     dDia9 = this.add.image(400, 150, 'dDia10');
     dDia9.setScale(0.6);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio10');
+    diaAudio.play();
     dNext = this.add.image(200, 450, 'next').setInteractive();
     dNext.setScale(0.5);
     dNext.once('pointerup', d6Sence, this);
@@ -954,6 +1064,9 @@ function dwrongChoice2() {
     choiceBowl3.destroy();
     dDia6 = this.add.image(700, 100, 'dDia6');
     dDia6.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio6');
+    diaAudio.play();
     var dwrong = this.add.image(400, 300, 'reason8');
     dwrong.setScale(0.5);
     dNext = this.add.image(100, 450, 'drestart').setInteractive();
@@ -968,6 +1081,9 @@ function d6Sence() {
     dNext.destroy();
     dDia11 = this.add.image(700, 100, 'dDia11');
     dDia11.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('daudio11');
+    diaAudio.play();
     bowlShow = this.add.image(400, 300, 'showbowl');
     bowlShow.setScale(0.5);
     dNext = this.add.image(130, 450, 'next').setInteractive();
@@ -1010,6 +1126,7 @@ function endBowl() {
     var tryOther = this.add.image(450, 450, 'tryOther').setInteractive();
     tryOther.setScale(0.5);
     tryOther.once('pointerup', function () {
+        diaAudio.destroy();
         this.scene.start('sceneA');
     }, this);
 }
@@ -1139,13 +1256,30 @@ var SceneE = new Phaser.Class({
         this.load.image('yespl', '../assets/game/waterbowl game/image of waterbowl game/button my pleasure.png');
         this.load.image('boxhint', '../assets/game/Birdbox game/game image/gamefail.png');
         this.load.image('boxagain', '../assets/game/waterbowl game/image of waterbowl game/button try again.png');
+        this.load.audio('eaudio1', '../Audio/game/birdbox/d1.wav');
+        this.load.audio('eaudio2', '../Audio/game/birdbox/d2.wav');
+        this.load.audio('eaudio3', '../Audio/game/birdbox/d3.wav');
+        this.load.audio('eaudio4', '../Audio/game/birdbox/d4.wav');
+        this.load.audio('eaudio5', '../Audio/game/birdbox/d5.wav');
+        this.load.audio('eaudio6', '../Audio/game/birdbox/d6.wav');
+        this.load.audio('eaudio7', '../Audio/game/birdbox/d7.wav');
+        this.load.audio('eaudio8', '../Audio/game/birdbox/d8.wav');
+        this.load.audio('eaudio10', '../Audio/game/birdbox/d10.wav');
+        this.load.audio('eaudio11', '../Audio/game/birdbox/d11.wav');
+        this.load.audio('einstruction', '../Audio/game/birdbox/instructions.wav');
+        this.load.audio('ereason5', '../Audio/game/birdbox/reason5.wav');
+        this.load.audio('ereason8', '../Audio/game/birdbox/reason8.wav');
+        this.load.audio('ethanks', '../Audio/game/birdbox/thankyou.wav');
+        this.load.audio('notsuitbox', '../Audio/game/birdbox/notsuitbox.wav');
     },
     create: function () {
         var background = this.add.image(450, 250, 'ebackground');
         background.setScale(0.7);
         var child = this.add.image(150, 350, 'child').setInteractive();
         eDia1 = this.add.image(200, 120, 'eDia1');
-        eDia1.setScale(0.5);
+        eDia1.setScale(0.5);  
+        diaAudio = this.sound.add('eaudio1');
+        diaAudio.play();
         eNext = this.add.image(700, 450, 'next').setInteractive();
         eNext.setScale(0.5);
         eNext.once('pointerup', e2Sence, this);
@@ -1168,6 +1302,9 @@ var SceneE = new Phaser.Class({
                 boxbox.destroy();
                 eDia11 = this.add.image(200, 120, 'eDia11');
                 eDia11.setScale(0.4);
+                diaAudio.destroy();
+                diaAudio = this.sound.add('eaudio11');
+                diaAudio.play();
                 eNext = this.add.image(700, 400, 'next').setInteractive();
                 eNext.setScale(0.5);
                 eNext.once('pointerup', endBox, this);
@@ -1175,6 +1312,9 @@ var SceneE = new Phaser.Class({
                 this.input.setDraggable(gameObject, false);
                 boxhint = this.add.image(450, 100, 'boxhint');
                 boxhint.setScale(0.5);
+                diaAudio.destroy();
+                diaAudio = this.sound.add('notsuitbox');
+                diaAudio.play();
                 boxagain = this.add.image(450, 150, 'boxagain').setInteractive();
                 boxagain.setScale(0.4);
                 boxagain.once('pointerup', clearBox, this);
@@ -1182,8 +1322,6 @@ var SceneE = new Phaser.Class({
             }
         }, this);
 
-    },
-    update: function () {
     }
 });
 
@@ -1192,6 +1330,9 @@ function e2Sence() {
     eNext.destroy();
     eDia2 = this.add.image(200, 120, 'eDia2');
     eDia2.setScale(0.5);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio2');
+    diaAudio.play();
     eNext = this.add.image(700, 450, 'next').setInteractive();
     eNext.setScale(0.5);
     eNext.once('pointerup', e3Sence, this);
@@ -1201,6 +1342,9 @@ function e3Sence() {
     eNext.destroy();
     eDia3 = this.add.image(200, 120, 'eDia3');
     eDia3.setScale(0.5);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio3');
+    diaAudio.play();
     eNext = this.add.image(700, 450, 'next').setInteractive();
     eNext.setScale(0.5);
     eNext.once('pointerup', e4Sence, this);
@@ -1210,7 +1354,9 @@ function e4Sence() {
     eNext.destroy();
     eDia4 = this.add.image(200, 120, 'eDia4');
     eDia4.setScale(0.5);
-
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio4');
+    diaAudio.play();
     wall = this.add.image(750, 200, 'wall').setInteractive();
     wall.setScale(0.4);
     house = this.add.image(750, 320, 'house').setInteractive();
@@ -1228,6 +1374,9 @@ function egoodChoice() {
     eaves.destroy();
     eDia6 = this.add.image(200, 120, 'eDia6');
     eDia6.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio6');
+    diaAudio.play();
     eNext = this.add.image(700, 450, 'next').setInteractive();
     eNext.setScale(0.5);
     eNext.once('pointerup', e5Sence, this);
@@ -1239,6 +1388,9 @@ function ewrongChoice() {
     eaves.destroy();
     eDia5 = this.add.image(200, 120, 'eDia5');
     eDia5.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio5');
+    diaAudio.play();
     reason4 = this.add.image(500, 300, 'reason4');
     reason4.setScale(0.5);
     eNext = this.add.image(800, 460, 'eRestart').setInteractive();
@@ -1253,7 +1405,9 @@ function e5Sence() {
     eNext.destroy();
     eDia7 = this.add.image(200, 120, 'eDia7');
     eDia7.setScale(0.5);
-
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio7');
+    diaAudio.play();
     diy = this.add.image(750, 200, 'diy').setInteractive();
     diy.setScale(0.4);
     diwp = this.add.image(750, 400, 'diwp').setInteractive();
@@ -1269,6 +1423,9 @@ function ewrongChoice2() {
 
     eDia8 = this.add.image(200, 120, 'eDia8');
     eDia8.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio8');
+    diaAudio.play();
     reason8 = this.add.image(500, 300, 'reason8');
     reason8.setScale(0.5);
     eNext = this.add.image(800, 460, 'eRestart').setInteractive();
@@ -1284,6 +1441,9 @@ function egoodChoice2() {
 
     eDia10 = this.add.image(200, 120, 'eDia10');
     eDia10.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('eaudio10');
+    diaAudio.play();
     eNext = this.add.image(700, 400, 'yespl').setInteractive();
     eNext.setScale(0.5);
     eNext.once('pointerup', boxGame, this);
@@ -1330,6 +1490,9 @@ function endBox() {
     eNext.destroy();
     eDia12 = this.add.image(200, 120, 'eDia12');
     eDia12.setScale(0.4);
+    diaAudio.destroy();
+    diaAudio = this.sound.add('ethanks');
+    diaAudio.play();
     var tryOther = this.add.image(700, 400, 'tryOther').setInteractive();
     tryOther.setScale(0.5);
     tryOther.once('pointerup', function () {
@@ -1353,5 +1516,25 @@ var config = {
 
 var game = new Phaser.Game(config);
 
+var checkMute = false;
+function mute() {
+    if (!checkMute) {
+        bgmusic.stop();
+        document.getElementById('mute').setAttribute("src", "../assets/unmute music.png");
+        document.getElementById('mute').setAttribute("title", "unmute");
+        checkMute = true;
+    }
+    else {
+        bgmusic.play({
+            loop: true
+        });
+        document.getElementById('mute').setAttribute("src", "../assets/mute music.png");
+        document.getElementById('mute').setAttribute("title", "mute");
+        checkMute = false;
+    }
 
+}
 
+function backtoList() {
+    this.scene.start('sceneA');
+}

@@ -4,7 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .popover {
+        max-width: 600px;
+        width: auto;
+    }
 
+    .popover-content {
+        width: 400px;
+    }
+</style>
 <span class="centername">@Html.DisplayFor(model => model.name)</span>
 <div class="card-row">
 
@@ -14,24 +23,29 @@
 </div>
 
 <hr />
+<div class="info-box">
+    <div class="info-container">
+        <square-title class="second_section">Click or move your mouse on the size card to see the detail!</square-title>
+    </div>
+</div>
 <div class="card-row">
     <div class="card-column">
         <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for type.png" width="100%" />
-            <div class="font-card" style="position:absolute; z-index:2; left:150px; top:190px">@Html.DisplayFor(model => model.type)</div>
+            <div class="font-card" style="position:absolute; z-index:2; left:20%; top:70%; right:10%">@Html.DisplayFor(model => model.type)</div>
         </div>
     </div>
     <div class="card-column">
         <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for where.png" width="100%" />
-            <div class="font-card" style="position:absolute; z-index:2; left:150px; top:200px">@Html.DisplayFor(model => model.where)</div>
+            <div class="font-card" style="position:absolute; z-index:2; left:20%; top:70%; right:10%">@Html.DisplayFor(model => model.where)</div>
         </div>
     </div>
     <div class="card-column">
         <div style="position:relative;">
 
             <img src="~/Image/detail information page/cards/module for endengered status.png" width="100%" />
-            <div class="font-card" style="position:absolute; z-index:2; left:130px; top:150px">@Html.DisplayFor(model => model.endanger_status)</div>
+            <div class="font-card" style="position:absolute; z-index:2; left:20%; top:70%; right:10%">@Html.DisplayFor(model => model.endanger_status)</div>
         </div>
     </div>
 </div>
@@ -42,30 +56,46 @@
     <div class="card-column">
         <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for habitat.png" width="100%" />
-            <div class="font-card" style="position:absolute; z-index:2; left:150px; top:200px">@Html.DisplayFor(model => model.habitat)</div>
+            <div class="font-card" style="position:absolute; z-index:2; left:20%; top:70%; right:10%">@Html.DisplayFor(model => model.habitat)</div>
         </div>
     </div>
     <div class="card-column">
         <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for food.png" width="100%" />
-            <div class="font-card" style="position:absolute;  left:100px; top:200px; right:150px">@Html.DisplayFor(model => model.food)</div>
+            @{
+                var styleset = "position:absolute;  left:20%; top:70%; right:10%";
+                if (Model.food.Length > 15)
+                {
+                    styleset = "position:absolute; font-size:30px; left:20%; bottom:5%; right:10%";
+                }
+                else
+                {
+                    styleset = "position:absolute;  left:20%; bottom:5%; right:10%";
+                }
+            }
+            <div class="font-card" style="@styleset">@Html.DisplayFor(model => model.food)</div>
         </div>
     </div>
     <div class="card-column">
         <div style="position:relative;">
-            <img src="~/Image/detail information page/cards/module for size.png" width="100%" />
-            <div class="font-card" style="position:absolute; z-index:2; left:220px; top:200px">@Html.DisplayFor(model => model.size)</div>
+            <img data-toggle="popoversize" src="~/Image/detail information page/cards/module for size.png" width="100%" />
+            <div class="font-card" style="position:absolute; z-index:2; left:20%; top:70%; right:10%">@Html.DisplayFor(model => model.size)</div>
         </div>
     </div>
 </div>
-<br />
-<div style="position:relative;">
-    <div class="card">
-        <img src="~/Image/detail information page/cards/module for interesting fact.png" width="100%" />
-        <div class="font-card" style="position:absolute; left:15%; top:50%; right:20%">@Html.DisplayFor(model => model.interest_fact)</div>
+<hr />
+<div class="card-row">
+    <div style="position:relative;">
+        <div>
+            <audio id="speaker">
+                <source src="~/Audio/species/@Model.name .wav" />
+            </audio>
+            <img src="~/Image/detail information page/cards/module for interesting fact.png" width="100%" />
+            <div class="font-card" style="position:absolute; left:15%; top:50%; right:20%">@Html.DisplayFor(model => model.interest_fact)</div>
+            <img src="~/Image/speaker.png" style="position:absolute;cursor:pointer; top:30%; right:15%" width="50" onclick="playAudio()" />
+        </div>
     </div>
 </div>
-
 
 <br />
 <div class="row">
@@ -112,3 +142,27 @@
 
     </div>
 </div>
+<script>
+    var speaker = document.getElementById("speaker");
+    var playcheck = true;
+    function playAudio() {
+        if (playcheck) {
+            speaker.play();
+            playcheck = false;
+        } else {
+            speaker.pause();
+            speaker.currentTime = 0;
+            playcheck = true;
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popoversize"]').popover({
+            html: true,
+            trigger: 'click hover',
+            placement: 'top',
+            content: function () { return '<div> <img src="../../Image/detail information page/'+'@Model.size'+'.png" width="100%"/></div>'; },
+        });
+    });
+</script>

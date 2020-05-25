@@ -24,9 +24,9 @@
         <audio id="homevoice" preload="auto" src="/Media/home.m4a"></audio>
         <audio id="aboutvoice" preload="auto" src="/Media/about.m4a"></audio>
         <div class="header">
-            
-            <img src="~/Image/heading.jpg" width="1140" class="responsive"/>
-            
+
+            <img src="~/Image/heading.jpg" width="1140" class="responsive" />
+
         </div>
 
         <div class="navbar navbar-inverse" id="navbar">
@@ -48,42 +48,43 @@
                         <li><a class="nav_species" href="/Species"></a></li>
                         <li><a class="nav_activity" href="/Activities"></a></li>
                         <li><a class="nav_game" href="/Game"></a></li>
-                        
+
                     </ul>
                 </div>
             </div>
         </div>
-        <div class=" body-content body-theme" >
-            
-                @RenderBody()
-            
-            <hr />
-                <footer class="upper-footer">
-                    <div class="row">
-                        <div class="column">
-                            <img src="~/Image/logo.png" width="250px" class="responsive" />
-                        </div>
-                        <div class="column">
-                            <h1 class="footer-title">ABOUT THIS SITE</h1>
-                            <hr />
-                            <h3 class="footer-content">
-                                This is an educational website for children of Gippsland to learn about Bush fires, how it affected wildlife and ways to help wildlife and their habitat.
-                            </h3>
-                        </div>
+        <div class=" body-content body-theme">
 
-                        <div class="column">
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <a href="/Home/About">
-                                <img src="~/Image/Map/about us - know more.png" width="250px" class="responsive" />
-                            </a>
-                        </div>
+            @RenderBody()
+
+            <hr />
+            <footer class="upper-footer" style="text-align:center;font-size:small;">
+                <div class="row">
+                    <div class="column">
+                        <img src="~/Image/logo.png" width="250px" class="responsive" />
                     </div>
-                    <p>&copy; @DateTime.Now.Year - Young Bushfire Heroes！</p>
-                </footer>
-            
+                    <div class="column">
+                        <h2 class="footer-title">ABOUT THIS SITE</h2>
+                        <hr />
+                        <h3 class="footer-content">
+                            This is an educational website for children of Gippsland to learn about Bush fires, how it affected wildlife and ways to help wildlife and their habitat.
+                        </h3>
+                    </div>
+
+                    <div class="column">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <a href="/Home/About">
+                            <img src="~/Image/homepage/footer - know more.png" width="250px" class="responsive" />
+
+                        </a>
+                    </div>
+                </div>
+                <p>Copyright&copy; 2020 Young Bushfire Heroes - Upper</p>
+            </footer>
+
         </div>
 
 
@@ -93,6 +94,12 @@
 
         <script>
 
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
             window.onscroll = function () { myFunction() };
 
             var navbar = document.getElementById("navbar");
@@ -100,101 +107,47 @@
 
             function myFunction() {
 
-                if (window.pageYOffset >= sticky) {
-                    navbar.classList.add("sticky")
-                } else {
-                    navbar.classList.remove("sticky");
-                }
-            }
-
-            var homevoice = $("#homevoice")[0];
-            var aboutvoice = $('#aboutvoice')[0];
-            $("#home").mouseenter(function () {
-                homevoice.play();
-            });
-            $("#about").mouseenter(function () {
-                aboutvoice.play();
-            });
-
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            var captionText = document.getElementById("caption");
-
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                if (slideIndex += n > slides.length) {
-
-                    showSlides(slides.length - 1);
-                } else if (slideIndex += n < 1) {
-                    showSlides(1);
-                }
-                else {
-                    showSlides(slideIndex += n);
-                }
-
-            }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
-
-                slideIndex++;
-                if (slideIndex > slides.length) { slideIndex = 1 };
-            }
-
-            var timer = setInterval(showSlides, 5000);
-
-            box.onmouseover = function () {
-                clearInterval(timer);
-            }
-
-            box.onmouseout = function () {
-                timer = setInterval(nextImage, 5000);
-            }
-            document.getElementById('house').style.visibility = "hidden";
-            document.getElementById('people').style.visibility = "hidden"
-            document.getElementById('habitat').style.visibility = "hidden"
-            document.getElementById('animals').style.visibility = "hidden"
-        
-            function showFunction() {
-                
-                if (document.getElementById('house').style.visibility != "visible") {
-                    document.getElementById('house').style.visibility = "visible"
-                } else {
-                    if (document.getElementById('people').style.visibility != "visible") {
-                        document.getElementById('people').style.visibility = "visible"
+                /**/
+                if (document.getElementById('game') == null) {
+                    /**/
+                    if (window.pageYOffset >= sticky) {
+                        navbar.classList.add("sticky")
                     } else {
-                        if (document.getElementById('habitat').style.visibility != "visible") {
-                            document.getElementById('habitat').style.visibility = "visible"
-                        } else {
+                        navbar.classList.remove("sticky");
+                    }
+                }
+
+            }
+
+
+
+            document.getElementById('house').style.visibility = "hidden";
+            document.getElementById('people').style.visibility = "hidden";
+            document.getElementById('habitat').style.visibility = "hidden";
+            document.getElementById('animals').style.visibility = "hidden";
+
+            function showFunction() {
+
+                if (document.getElementById('people').style.visibility != "visible") {
+                    document.getElementById('people').style.visibility = "visible"
+                } else {
+                    if (document.getElementById('house').style.visibility != "visible") {
+                        document.getElementById('house').style.visibility = "visible"
+                    } else {
+                        if (document.getElementById('animals').style.visibility != "visible") {
                             document.getElementById('animals').style.visibility = "visible"
+                        } else {
+                            document.getElementById('habitat').style.visibility = "visible"
                         }
                     }
                 }
                 if (document.getElementById('animals').style.visibility != "hidden") {
-                    
+
                     document.getElementsByClassName('second_section').scrollIntoView();
                 } else {
-                    
+
                 }
-               }
+            }
         </script>
     </div>
 </body>

@@ -1,15 +1,19 @@
 ﻿
 @{
-    ViewBag.Title = "Activity - ";
+    ViewBag.Title = "Game - ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<div class="game-box">
+<div class="game-box" id="game">
     <div class="info-container">
         <div id="phaser-example"></div>
-
+        <a onclick="mute()">
+            <img id="mute" title="mute" src="~/assets/mute music.png" style="cursor:pointer;" width="5%" />
+        </a>
+        <a href="">
+            <img src="~/assets/back to game list.png" style="cursor:pointer;" width="20%" />
+        </a>
     </div>
-</div>
+    </div>
 
-<script src="~/Scripts/game.js"></script>
- 
+    <script src="~/Scripts/game.js"></script>

@@ -48,11 +48,8 @@ namespace youngbushfireheroes.Controllers
         public ActionResult SpeciesDetail()
         {
             Random random = new Random();
-            int id = random.Next(2, 8);
-            while(id == 4)
-            {
-                id = random.Next(2, 8);
-            }
+            int id = random.Next(1, 6);
+            
             Species species = db.SpeciesSet.Find(id);
             if (species == null)
             {

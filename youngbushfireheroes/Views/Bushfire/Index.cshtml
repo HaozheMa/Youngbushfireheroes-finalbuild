@@ -4,145 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container" id="bubbles">
-
-</div>
-<div class="info-box">
-    <div class="info-container">
-        <square-title>How did the bushfire affect wildlife?</square-title>
-    </div>
-</div>
+<img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 
 <br />
-
-<div class="row">
-    <div class="left-column">
-
-        <img class="responsive" id="people" src="~/Image/affected people.jpg" width="300" style="visibility: hidden" />
-    </div>
-    <div class=" column">
-        <square-title style="color:black">
-            Not only
-        </square-title>
-    </div>
-    <div class="right-column">
-        <img class="responsive" id="house" src="~/Image/affected house.jpg" width="300" style="visibility: hidden" />
-
-    </div>
-</div>
-<div class="row">
-    <div class=" column">
-        <square-title style="color:black"><span style="color:red">people</span> </square-title>
-    </div>
-    <div class=" column">
-        <square-title style="color:black">  and  </square-title>
-    </div>
-    <div class=" column">
-        <square-title style="color:black"> <span style="color:red">their houses</span></square-title>
-    </div>
-</div>
-<br />
-<div class="warn-box">
-
-    <div class="bushfire-box">
-
-        <div class="fire" onclick="showFunction()">
-            <div class="fire-left">
-                <div class="main-fire"></div>
-                <div class="particle-fire"></div>
-            </div>
-            <div class="fire-main">
-                <div class="main-fire"></div>
-                <div class="particle-fire"></div>
-            </div>
-            <div class="fire-right">
-                <div class="main-fire"></div>
-                <div class="particle-fire"></div>
-            </div>
-            <div class="fire-bottom">
-                <div class="main-fire"></div>
-            </div>
-        </div>
-    </div>
-    <br />
-    <square-warn class="centername img-shake">Try to click</square-warn>
-
-
-</div>
-<hr />
-<div class="row">
-    <div class="left-column">
-        <img class="responsive" id="animals" src="~/Image/bushfire/fire - animal.png" width="350" style="visibility: hidden" />
-    </div>
-    <div class=" column">
-        <square-title style="color:black">
-            But also
-        </square-title>
-    </div>
-    <div class="right-column">
-        <img class="responsive" id="habitat" src="~/Image/hanitat affected.jpg" width="300" style="visibility: hidden" />
-    </div>
-</div>
-
-<div class="row">
-    <div class=" column">
-        <square-title style="color:black"><span style="color:red">animals</span> </square-title>
-    </div>
-    <div class=" column">
-        <square-title style="color:black">  and  </square-title>
-    </div>
-    <div class=" column">
-        <square-title style="color:black"> <span style="color:red">their houses</span></square-title>
-    </div>
-</div>
-
-<hr />
-
-
 <div class="info-box">
     <div class="info-container">
-        <square-title class="second_section">How much you know about the bushfire?</square-title>
-    </div>
-</div>
-
-<br />
-
-<div class="card-row">
-    <div class="card-column" width="100%">
-        <div class="question-container" width="100%" onclick="toggleShow1()">
-            <img src="~/Image/card- When did the bushfire start.PNG" alt="Avatar" class="aimage" />
-
-
-            <div class="overlay-card ycard">
-                <div class="answer-text">November 2019</div>
-            </div>
-        </div>
-    </div>
-    <div class="card-column">
-        <div class="question-container" onclick="toggleShow2()">
-            <img src="~/Image/card- When did the bushfire end.PNG" alt="Avatar" class="aimage" />
-
-
-            <div class="overlay-card zcard">
-                <div class="answer-text">February 2020</div>
-            </div>
-        </div>
-    </div>
-    <div class="card-column">
-        <div class="question-container" onclick="toggleShow3()">
-            <img src="~/Image/card- How many days.PNG" alt="Avatar" class="aimage" />
-
-
-            <div class="overlay-card xcard">
-                <div class="answer-text">91 days</div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr />
-<div class="info-box">
-    <div class="info-container">
-        <square-title class="second_section">which area was affected by the bushfire?</square-title>
+        <square-title class="second_section">Which areas were affected by the bushfire in East  Gippsland?</square-title>
     </div>
 </div>
 <br />
@@ -152,6 +19,7 @@
 </div>
 
 <div class="col-lg-1">
+    <h3 class="img-up-and-down">↓↓↓↓↓↓</h3>
     <a href="javascript:void(0)"><h3 style="font-family: 'Kidzone'" onclick="Buchan()">Buchan</h3></a>
     <a href="javascript:void(0)">
         <h3 style="font-family: 'Kidzone'" onclick="Bruthen()">Bruthen</h3>
@@ -166,31 +34,126 @@
         <h3 style="font-family: 'Kidzone'" onclick="Tambo()">Tambo Valley</h3>
     </a>
     <a href="javascript:void(0)">
-        <h3 style="font-family: 'Kidzone'" onclick="Tree()">W Tree</h3>
+        <h3 style="font-family: 'Kidzone'" onclick="Tree()">WTree</h3>
     </a>
     <a href="javascript:void(0)">
         <h3 style="font-family: 'Kidzone'" onclick="Wairewa()">Wairewa</h3>
     </a>
-    <a href="javascript:void(0)"><h3 style="font-family: 'Kidzone'" onclick="Wulgulmerang()">Wulgulmerang</h3></a>
+    <a href="javascript:void(0)">
+        <h3 style="font-family: 'Kidzone'" onclick="Wulgulmerang()">Wulgulmerang</h3>
+    </a>
+    <h3 class="img-up-and-down">↑↑↑↑↑↑</h3>
+
 </div>
 <img src="~/Image/Map/legend.png" width="100%" />
 
 <br />
 <hr />
 
+
+
+
+<div class="info-box">
+    <div class="info-container">
+        <square-title class="second_section">How much do you know about East Gippsland bushfires?</square-title>
+    </div>
+</div>
+
+<br />
+
+<div class="card-row">
+    <div class="card-column" width="100%">
+        <div class="question-container" width="100%" onclick="toggleShow1()">
+            <img src="~/Image/bushfire/Bushfire question1.png" class="aimage"/>
+            <div class="overlay-card ycard">
+                <div class="answer-text">November 2019</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-column">
+        <div class="question-container" onclick="toggleShow2()">
+            <img src="~/Image/bushfire/Bushfire question2.png" class="aimage" />
+            <div class="overlay-card zcard">
+                <div class="answer-text">February 2020</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-column">
+        <div class="question-container" onclick="toggleShow3()">
+            <img src="~/Image/bushfire/Bushfire question3.png" class="aimage"/>
+            <div class="overlay-card xcard">
+                <div class="answer-text">91 days</div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="info-box">
+    <div class="info-container">
+        <square-title>What were the impacts of bushfires?</square-title>
+    </div>
+</div>
+
+<br />
+
+<div class="row" style="text-align:center">
+    <div class="col-lg-3 " id="people" style="visibility: hidden">
+        <img class="responsive" src="~/Image/affected people.jpg" width="300" />
+        <h1>people</h1>
+    </div>
+
+    <div class="col-lg-3" id="house" style="visibility: hidden ">
+        <img class="responsive" src="~/Image/affected house.jpg" width="300" />
+        <h1>people's house</h1>
+    </div>
+    <div class=" col-lg-3" id="animals" style="visibility: hidden">
+        <img class="responsive" src="~/Image/bushfire/fire - animal.png" width="350" />
+        <h1>animal</h1>
+    </div>
+
+    <div class=" col-lg-3" id="habitat" style="visibility: hidden">
+        <img class="responsive" src="~/Image/hanitat affected.jpg" width="300" height="250" />
+        <h1>animals' habitat</h1>
+    </div>
+</div>
+
+<br />
+<div class="warn-box">
+    <div class="bushfire-box">
+        <div class="fire" onclick="showFunction()">
+            <div class="fire-left">
+                <div class="main-fire"></div>
+                <div class="particle-fire"></div>
+            </div>
+            <div class="fire-main">
+                <div class="main-fire"></div>
+                <div class="particle-fire"></div>
+            </div>
+            <div class="fire-right">
+                <div class="main-fire"></div>
+                <div class="particle-fire"></div>
+            </div> <square-warn class="centername img-shake" style="user-select:none">click</square-warn>
+
+        </div>
+    </div>
+</div>
+<br />
+<hr />
+
 <div class="show-box">
     <div class="show-container">
         <show-text>
-            Lets learn which wildlife species were affected by bushfire
+            Let's learn which wildlife species were affected by bushfire
         </show-text>
         <br />
         <a href="~/Species/Index">
             <img class=" responsive" src="~/Image/bushfire/linktoanimal.png" width="600" />
         </a>
-        <h1 class="img-shake">↑click on it!↑</h1>
+        <h1 class="img-shake">↑click on this picture!↑</h1>
     </div>
-</div> 
+</div>
 <script>
+    
     function Buchan() {
         document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Buchan.jpg");
     }
@@ -228,5 +191,8 @@
         var element = document.querySelector(".xcard");
         element.classList.toggle("overlay-card-v");
     }
+
+
+
 
 </script>

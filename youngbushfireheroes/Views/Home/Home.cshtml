@@ -2,59 +2,68 @@
 @{
     ViewBag.Title = "";
 }
+<img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 <br />
-<br/> 
-    <div class="show-box">
-        <div class="show-container">
-            <show-text>Welcome to our website Young Bush fire Heroes!</show-text>
-            <h3>Recent bush fire caused many problems. It caused problems to our Animals friends too. But don't worry, there many ways to help Animal friends. We will need your help to do that.</h3>
+<br />
+<div class="show-box">
+    <div class="show-container">
+        <audio id="homespeaker">
+            <source src="~/Audio/homepage.wav" />
+        </audio>
+        <img src="~/Image/speaker.png" width="50" style="cursor:pointer;" onclick="playAudio()" />
+        <show-text>Welcome to our website Young Bushfire Heroes!</show-text>
+        <h3>Recent bushfires in Australia caused many problems. It caused problems for our animal friends in East Gippsland too. But don't worry, there are many ways to help animal friends. We will need your help to do that.</h3>
 
-            <h3> Lets start by learning about bush fire. </h3>
-            <a href="~/Bushfire/Index">
-                <img class=" responsive" src="~/Image/homepage/linktobushfire.jpg" width="600" />
-
-            </a>
-            <h1 class="img-shake">↑click on it!↑</h1>
-        </div>
+        <h3> Let's start by learning about bushfires. </h3>
 
 
-    </div> 
+        <a href="~/Bushfire/Index">
+            <img class=" responsive" src="~/Image/homepage/linktobushfire.jpg" width="600" />
+
+        </a>
+        <h1 class="img-shake">↑click on this picture!↑</h1>
+    </div>
+
+
+</div>
 <div class="image-container">
     <div class="mySlides ">
         <div class="numbertext">1 / 3</div>
         <img src="~/Image/pic for affected animal func.JPG" style="width:100%">
         <div class="text-block">
-            <h4>affected Animals</h4>
-            <p>Kangaroos were hold by the firemen, who saved them in the bushfire.</p>
+            <p>
+                Kangaroos were held by Firemen who saved them in the bushfires.
+            </p>
         </div>
     </div>
 
     <div class="mySlides">
         <div class="numbertext">2 / 3</div>
         <img src="~/Image/pic for animal.JPG" style="width:100%">
-
+        <div class="text-block">
+            <p>
+                We will help our animal friends.
+            </p>
+        </div>
     </div>
 
     <div class="mySlides">
         <div class="numbertext">3 / 3</div>
         <img src="~/Image/pic for bushfire func.JPG" style="width:100%">
         <div class="text-block">
-            <h4>After Bushfire</h4>
-            <p>After the bushfire, tree trunk sprout and get new life.</p>
+            <p> Plants regrew after the bushfires giving us hope.</p>
         </div>
     </div>
 
 
     <a class="prev" onclick="plusSlides(-1)">
-        <img src="~/Image/go left icon.png" width="50"/>
+        <img src="~/Image/go left icon.png" width="120px" />
     </a>
     <a class="next" onclick="plusSlides(1)">
-        <img src="~/Image/go right icon.png" width="50"/>
+        <img src="~/Image/go right icon.png" width="120px" />
     </a>
 
-    <div class="caption-container">
-        <p id="caption"></p>
-    </div>
+
 
     <div class="row">
         <div class="column">
@@ -72,18 +81,104 @@
 <hr />
 
 
-
-<div class="bubble-container bubble-image-cropper   x1">
-    <a href='@Url.Action("SpeciesDetail", "Home")'>
-        <img src="~/Image/Question mark 2.png"  class="bubble-image" style="width:100%" />
-        </a>
+<div class="info-box">
+    <div class="info-container">
+        <square-title class="second_section">Pop the bubbles and see a surprise!</square-title>
+    </div>
 </div>
+<br />
+<div class="show-box">
+    <div class="wrapper">
+        <div class="">
+            <a href='@Url.Action("SpeciesDetail", "Home")'>
+                <img src="~/Image/Question mark 2.png" class=" bubble one" />
+            </a>
+            <a href='@Url.Action("SpeciesDetail", "Home")'>
+                <img src="~/Image/Question mark 2.png" class=" bubble four" />
+            </a>
+            <a href='@Url.Action("SpeciesDetail", "Home")'>
+                <img src="~/Image/Question mark 2.png" class=" bubble one" />
+            </a>
+            <a href='@Url.Action("SpeciesDetail", "Home")'>
+                <img src="~/Image/Question mark 2.png" class=" bubble three" />
+            </a>
+            <a href='@Url.Action("SpeciesDetail", "Home")'>
+                <img src="~/Image/Question mark 2.png" class=" bubble one" />
+            </a>
+        </div>
 
-<div class="bubble-container bubble-image-cropper   x4">
-
-    <a href='@Url.Action("SpeciesDetail", "Home")'>
-        <img src="~/Image/Question mark 2.png" class="bubble-image" style="width:100%" />
-    </a>
+    </div>
 </div>
+<script>
+    var homespeaker = document.getElementById("homespeaker");
+    var playcheck = true;
+    function playAudio() {
+        if (playcheck) {
+            homespeaker.play();
+            playcheck = false;
+        } else {
+            homespeaker.pause();
+            homespeaker.currentTime = 0;
+            playcheck = true;
+        }
 
+    }
+</script>
+<script>
 
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+
+        if (slideIndex + n < 1) { 
+            showSlides(slideIndex =slides.length);
+             
+        }
+        else if (slideIndex + n > slides.length) { 
+            showSlides(slideIndex =1);
+              
+        }
+        else {
+            showSlides(slideIndex += n);
+        }
+
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 };
+    }
+
+    var timer = setInterval(showSlides, 5000);
+
+    box.onmouseover = function () {
+        clearInterval(timer);
+    }
+
+    box.onmouseout = function () {
+        timer = setInterval(nextImage, 5000);
+    }
+</script>

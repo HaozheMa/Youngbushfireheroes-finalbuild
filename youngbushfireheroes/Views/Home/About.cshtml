@@ -3,14 +3,37 @@
 }
 <br />
 <style>
-    * {
-        box-sizing: border-box
+    .aboutUsButton {
+        background-color: transparent;
+        padding: 1px 1px;
+        border: transparent;
+        cursor: pointer;
     }
 
-    body {
-        font-family: "Lato", sans-serif;
+    .aboutUsButton {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
     }
 
+        .aboutUsButton:hover, .aboutUsButton:focus, .aboutUsButton:active {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+
+
+    .aboutUsText {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        line-height: 2em;
+    }
     /* Style the tab */
     .tab {
         float: left;
@@ -18,7 +41,7 @@
         border-right: hidden;
         background-color: #ff6b66;
         width: 20%;
-        height: auto;
+        height: 700px;
     }
 
         /* Style the buttons inside the tab */
@@ -51,9 +74,8 @@
         float: left;
         padding: 0px 12px;
         border: 1px solid #ff6b66;
-        
-        width: 80%; 
-        height: auto;
+        width: 80%;
+        height: 700px;
         display: none;
     }
 
@@ -72,30 +94,34 @@
     <button class="tablinks" onmouseover="openBlock(event, 'parent')">
         For parents:
     </button>
-
+    <button class="tablinks" onmouseover="openBlock(event, 'attributes')">Attributes</button>
 </div>
 
 <div id="kids" class="tabcontent" style="display:block">
-    <h3>For kids</h3>
+    <p class="aboutUsText">Hi! Welcome to Young Bushfire Heroes! </p>
+    <a class="aboutUsButton" href="/Home/Home" target="_blank" title="Go to bushfire page"><img src="~/Image/nav-bushfire 2.png" width="120px" class="responsive"></a>
+    <span class="aboutUsText">Click the bushfire button to explore bushfire facts!</span>
+
     <p>
-        Hi kid! Welcome to Young Bushfire Heroes! You can learn and play here!
+        <a class="aboutUsButton" href="https://youngbushfireheroes.team/Species" target="_blank" title="Go to wildlife page"><img src="~/Image/nav-wildlife 2.png" width="120px" class="responsive"></a>
+        <span class="aboutUsText">Click the bushfire button to explore bushfire facts!</span>
     </p>
+
     <p>
-        In this website, you can learn the knowledge of bushfires that happened in 2019-2020. In the bushfire, many cute wildlife were affected. You can also learn about those animals.
+        <a class="aboutUsButton" href="https://youngbushfireheroes.team/Activities" target="_blank" title="Go to activity page"><img src="~/image/activity.png" width="120px" class="responsive"></a>
+        <span class="aboutUsText">Click the wildlife button to learn bushfire affected animals!</span>
     </p>
+
     <p>
-        Do you want to take action to help the animals by yourself? Yes, you can! We provide many activities for you to learn how to help the animals. If you want your daddy and mommy to be with you, just invite them! We have two tutorials for your family to do together.
+        <a class="aboutUsButton" href="https://youngbushfireheroes.team/Game" target="_blank" title="Go to game page"><img src="~/image/game.png" width="120px" class="responsive"></a>
+        <span class="aboutUsText">Click the activity button to see how you can do for helping to rebuild after the bushfire!</span>
     </p>
+
     <p>
-        Smart you must like to check whether you are a master to help animals. Here, you can play a game to test yourself!
+        <span class="aboutUsText">Are you ready to be a bushfire hero? Click the start button and go!</span>
+        <span><a class="aboutUsButton" href="https://youngbushfireheroes.team/Home/Home" target="_blank" title="Go to homepage"><img src="~/image/start.png" width="120px" class="responsive"></a></span>
     </p>
-    <p>
-        Are you ready to be a bushfire hero? Let’s go!
-    </p>
-    <a href="/Home/Home">click here to start your trip</a>
-    <br />
-    <br />
-    <br /> 
+
 </div>
 
 <div id="parent" class="tabcontent">
@@ -114,17 +140,36 @@
     </p>
 </div>
 
+<div id="attributes" class="tabcontent">
+    People
+    <a href="https://www.vecteezy.com/free-vector/family">Family Vectors by Vecteezy</a>
+    House
+    <a href="https://www.vecteezy.com/free-vector/home">Home Vectors by Vecteezy</a>
 
+    Animal
+    <a href="https://www.vecteezy.com/free-vector/australia-animals">Australia Animals Vectors by Vecteezy</a>
+
+    Jungle
+    <a href="https://www.vecteezy.com/free-vector/jungle">Jungle Vectors by Vecteezy</a>
+
+    Children cartoon playing in nature
+    <a href="https://www.vecteezy.com/free-vector/children-nature">Children Nature Vectors by Vecteezy</a>
+
+    Children cartoon roaming together
+    <a href="https://www.vecteezy.com/free-vector/children-nature">Children Nature Vectors by Vecteezy</a>
+    Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+    Question mark: Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+</div>
 
 <div class="clearfix"></div>
 
 <script>
     function openBlock(evt, UserName) {
         var i, tabcontent, tablinks;
-        
+
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
-             
+
             tabcontent[i].style.display = "none";
         }
         tablinks = document.getElementsByClassName("tablinks");

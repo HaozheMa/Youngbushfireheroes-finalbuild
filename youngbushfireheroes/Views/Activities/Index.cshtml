@@ -20,7 +20,7 @@
 
     .acard {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 300px;
+        max-width: 400px;
         margin: auto;
         text-align: center;
         font-family: arial;
@@ -51,24 +51,27 @@
         }
 </style>
 <br />
+<img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 <div class="info-box">
     <div class="info-container">
         <square-title>There are many ways to help animal friends.</square-title><br>
         <square-title>Lets do some activities to help them</square-title>
-        <img src="~/Image/tutorial/are you learning by yourself.png" width="100%" />
-        <div class="row">
-            <div class="left-column">
-                <a href="/Activities/Index#alone">
-                    <img src="~/Image/tutorial/learn alone.png" width="100%" />
-                </a>
-            </div>
-            <div class="right-column">
-                <a href="/Activities/Index#parent">
-                    <img src="~/Image/tutorial/learn with parent.png" width="100%" />
-                </a>
-            </div>
+    </div>
+    <br />
+    <img src="~/Image/tutorial/are you learning by yourself.png" width="70%" />
+    <div class="row">
+        <div class="left-column">
+            <a href="/Activities/Index#alone">
+                <img src="~/Image/tutorial/learn alone.png" width="100%" />
+            </a>
+        </div>
+        <div class="right-column">
+            <a href="/Activities/Index#parent">
+                <img src="~/Image/tutorial/learn with adult.png" width="100%"/>
+            </a>
         </div>
     </div>
+
 </div>
 <div id="alone"></div>
 <hr />
@@ -82,22 +85,23 @@
 
 <div class="row">
     <div class="left-column-half">
-        <div class="acard"> 
-            <img src="~/Image/tutorial/cover pages/cover page of recycling.jpg" alt="John" style="width:100%">
+        <div class="acard">
+            <img src="~/Image/tutorial/cover pages/cover page of recycling.jpg" style="width:100%">
             <h1>Go green</h1>
             <p class="title">Do it youself</p>
-            <p>about 20 minutes</p>
+            <p>You don’t have to have superpowers</p><p> to be a hero, just Go green!</p>
             <div style="margin: 24px 0;">
             </div>
             <a href="/Activities/Details/2"><abutton>Learn</abutton></a>
         </div>
     </div>
-    <div class="right-column-half">
+    <div class="right-column-half" style="float:right">
         <div class="acard">
-            <img src="~/Image/tutorial/cover pages/coverpage plant tree.png" alt="John" style="width:100%">
+            <img src="~/Image/tutorial/cover pages/coverpage plant tree.png" style="width:100%">
             <h1>Plant tree</h1>
             <p class="title">Do it youself</p>
-            <p>about 20 minutes</p>
+            <p>To explore what kind of tree can be planted</p>
+            <p> for the bushfire affected animals to eat!</p>
             <div style="margin: 24px 0;">
             </div>
             <a href="/Activities/Details/3"><abutton>Learn</abutton></a>
@@ -109,21 +113,23 @@
 <div class="row">
     <div class="left-column-half">
         <div class="acard">
-            <img src="~/Image/tutorial/cover pages/coverpage restraining pet .jpg" alt="John" style="width:100%">
+            <img src="~/Image/tutorial/cover pages/coverpage restraining pet .jpg" style="width:100%">
             <h1>Restraining pet</h1>
             <p class="title">Do it youself</p>
-            <p>about 20 minutes</p>
+            <p>Keeping pets away from wildlife</p>
+            <p> will protect them both.</p>
             <div style="margin: 24px 0;">
             </div>
             <a href="/Activities/Details/4"><abutton>Learn</abutton></a>
         </div>
     </div>
     <div class="right-column-half">
-        <div class="acard"> 
-            <img src="~/Image/tutorial/cover pages/coverpage water bowl.jpg" alt="John" style="width:100%">
+        <div class="acard">
+            <img src="~/Image/tutorial/cover pages/coverpage water bowl.jpg" style="width:100%">
             <h1>Water bowl</h1>
             <p class="title">Do it youself</p>
-            <p>about 20 minutes</p>
+            <p>Keep water bowls </p>
+            <p> for thirsty animals.</p>
             <div style="margin: 24px 0;">
             </div>
             <a href="/Activities/Details/5"><abutton>Learn</abutton></a>
@@ -141,38 +147,43 @@
 
 <div class="row">
     <div class="left-column-half">
-        <div class="acard"> 
-            <img src="~/Image/tutorial/cover pages/coverpage birdbox.jpg" alt="John" style="width:100%">
+        <div class="acard">
+            <img src="~/Image/tutorial/cover pages/coverpage birdbox.jpg" style="width:100%">
             <h1>Birdbox</h1>
             <p class="title">Do with your parents</p>
-            <p>about 20 minutes</p>
+            <p>An easy way to provide water  </p>
+            <p>  for the affected wildlife!</p>
             <div style="margin: 24px 0;">
             </div>
             <a href="/Activities/Details/1"><abutton>Learn</abutton></a>
         </div>
     </div>
     <div class="right-column-half">
-        <div class="acard"> 
-            <img src="~/Image/tutorial/cover pages/cover page of water station.jpg" alt="John" style="width:100%">
+        <div class="acard">
+            <img src="~/Image/tutorial/cover pages/cover page of water station.jpg" style="width:100%">
             <h1>Water station</h1>
             <p class="title">Do with your parents</p>
-            <p>about 20 minutes</p>
+            <p>There are never enough shelters for birds </p>
+            <p> especially after the bushfire!</p>
             <div style="margin: 24px 0;">
             </div>
             <a href="/Activities/Details/6"><abutton>Learn</abutton></a>
         </div>
     </div>
 </div>
-<br/>
+<br />
+<hr />
+<br />
 <div class="show-box">
     <div class="show-container">
         <show-text>
-            Lets play some games and check what you have learned!
+            Let's play some games and check what you have learned!
         </show-text>
         <br />
         <a href="~/Game">
             <img class=" responsive" src="~/Image/link to game.jpg" width="600" />
         </a>
-        <h1 class="img-shake">↑click on it!↑</h1>
+        <h1 class="img-shake">↑click on this picture!↑</h1>
     </div>
 </div>
+ 
