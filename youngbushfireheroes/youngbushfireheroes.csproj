@@ -653,7 +653,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Bushfire\Index.cshtml" />
-    <Content Include="Views\Species\Details.cshtml" />
     <Content Include="Views\Species\Index.cshtml" />
     <Content Include="Views\Species\SpeciesDetail.cshtml" />
     <Content Include="Views\Home\SpeciesDetail.cshtml" />
@@ -664,7 +663,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />
-    <Folder Include="Views\UploadCSV\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

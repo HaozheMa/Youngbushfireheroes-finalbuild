@@ -17,7 +17,7 @@ namespace youngbushfireheroes.Controllers
         {
             StringBuilder sb = new StringBuilder();
             try
-            {
+            {//md5 encryption 
                 MD5 md5 = MD5.Create();
                 byte[] byteOld = Encoding.UTF8.GetBytes(SearchString);
                 byte[] byteNew = md5.ComputeHash(byteOld);
@@ -31,6 +31,7 @@ namespace youngbushfireheroes.Controllers
             {
 
             }
+            //encryption password and check if it is correct.
             var pw = sb.ToString();
             if (pw.ToUpper() != "19DE5B94F7B83900D4B296D9FA491AEC" )
             {
@@ -44,7 +45,7 @@ namespace youngbushfireheroes.Controllers
             } 
             return View();
         }
-
+        //rondom show a species in the species detail page
         public ActionResult SpeciesDetail()
         {
             Random random = new Random();

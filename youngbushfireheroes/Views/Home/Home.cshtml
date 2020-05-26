@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "";
 }
+@* this page is to show the home page*@
+@*back to up button*@
 <img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 <br />
 <br />
@@ -10,6 +12,7 @@
         <audio id="homespeaker">
             <source src="~/Audio/homepage.wav" />
         </audio>
+        @*play the audio*@
         <img src="~/Image/speaker.png" width="50" style="cursor:pointer;" onclick="playAudio()" />
         <show-text>Welcome to our website Young Bushfire Heroes!</show-text>
         <h3>Recent bushfires in Australia caused many problems. It caused problems for our animal friends in East Gippsland too. But don't worry, there are many ways to help animal friends. We will need your help to do that.</h3>
@@ -24,7 +27,7 @@
         <h1 class="img-shake">↑click on this picture!↑</h1>
     </div>
 
-
+    @*photo slides*@
 </div>
 <div class="image-container">
     <div class="mySlides ">
@@ -80,7 +83,7 @@
 
 <hr />
 
-
+@*superise bubbles*@
 <div class="info-box">
     <div class="info-container">
         <square-title class="second_section">Pop the bubbles and see a surprise!</square-title>
@@ -110,6 +113,7 @@
     </div>
 </div>
 <script>
+    //function to controll the audio
     var homespeaker = document.getElementById("homespeaker");
     var playcheck = true;
     function playAudio() {
@@ -125,7 +129,7 @@
     }
 </script>
 <script>
-
+    //funtion to controll the slides
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("demo");
     var captionText = document.getElementById("caption");

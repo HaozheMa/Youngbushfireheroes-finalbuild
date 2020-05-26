@@ -3,12 +3,13 @@
     ViewBag.Title = "SpeciesDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@* this page shows data of different species*@
 <style>
     .popover {
         max-width: 600px;
         width: auto;
     }
+
     .popover-content {
         width: 400px;
     }
@@ -61,6 +62,7 @@
     <div class="card-column">
         <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for food.png" width="100%" />
+            @* change the style based on the length of text, make sure the text fit in the card *@
             @{
                 var styleset = "position:absolute;  left:20%; top:70%; right:20%";
                 if (Model.food.Length > 15)
@@ -91,11 +93,12 @@
             </audio>
             <img src="~/Image/detail information page/cards/module for interesting fact.png" width="100%" />
             <div class="font-card" style="position:absolute; left:15%; top:50%; right:20%">@Html.DisplayFor(model => model.interest_fact)</div>
+            @* play the audio of interesting facts*@
             <img src="~/Image/speaker.png" style="position:absolute;cursor:pointer; top:30%; right:15%" width="50" onclick="playAudio()" />
         </div>
     </div>
 </div>
-
+@* next page and pervious page, when the page is in the first and last page*@
 <br />
 <div class="row">
     <div class="left-column">
@@ -156,6 +159,7 @@
     }
 </script>
 <script>
+    //popover function return the picture of size
     $(document).ready(function () {
         $('[data-toggle="popoversize"]').popover({
             html: true,

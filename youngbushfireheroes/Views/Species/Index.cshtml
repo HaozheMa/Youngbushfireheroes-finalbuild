@@ -4,6 +4,7 @@
     ViewBag.Title = "Species - ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@* this page to show the species information*@
 <br />
 <img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 <div class="info-box">
@@ -12,6 +13,7 @@
     </div>
 </div>
 <br />
+@* 3 gif to replay*@
 <div class="info-box">
     <div class="info-container">
         <h2>Animal population has decreased </h2>
@@ -39,6 +41,7 @@
 </div>
 
 <hr />
+@* animals card to show short informations and button to jump to detail page*@
 <div class="info-box" id="species-affected">
     <div class="info-container">
         <square-title style="text-align:center">
@@ -152,6 +155,7 @@
 </div>
 
 <script>
+    //funtion to controll replay
     function replay1() {
         var src = document.getElementById('number').getAttribute("src");
         document.getElementById('number').setAttribute("src", src);

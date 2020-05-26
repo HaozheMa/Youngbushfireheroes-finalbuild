@@ -3,7 +3,8 @@
     ViewBag.Title = "Bushfire - ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@*this page show the bushfire informations*@
+@*go to top function*@
 <img id="goTotop" onclick="topFunction()" src="~/Image/1 go back to top.png">
 
 <br />
@@ -17,7 +18,7 @@
 <div class="col-lg-10">
     <img id="mapshow" src="~/Image/Map/East Gippsland fire map_1.png" width="100%" />
 </div>
-
+@* show the map*@
 <div class="col-lg-1">
     <h3 class="img-up-and-down">↓↓↓↓↓↓</h3>
     <a href="javascript:void(0)"><h3 style="font-family: 'Kidzone'" onclick="Buchan()">Buchan</h3></a>
@@ -60,7 +61,7 @@
 </div>
 
 <br />
-
+@* show the question card*@
 <div class="card-row">
     <div class="card-column" width="100%">
         <div class="question-container" width="100%" onclick="toggleShow1()">
@@ -95,7 +96,7 @@
 </div>
 
 <br />
-
+@*click fire to see the pictures.*@
 <div class="row" style="text-align:center">
     <div class="col-lg-3 " id="people" style="visibility: hidden">
         <img class="responsive" src="~/Image/affected people.jpg" width="300" />
@@ -118,6 +119,7 @@
 </div>
 
 <br />
+@* fire animation*@
 <div class="warn-box">
     <div class="bushfire-box">
         <div class="fire" onclick="showFunction()">
@@ -153,7 +155,7 @@
     </div>
 </div>
 <script>
-    
+    //functions to switch map
     function Buchan() {
         document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Buchan.jpg");
     }
@@ -178,7 +180,7 @@
     function Wulgulmerang() {
         document.getElementById('mapshow').setAttribute("src", "../Image/Map/map location/Wulgulmerang.jpg");
     }
-
+    //functions to show the answers
     var toggleShow1 = function () {
         var element = document.querySelector(".ycard");
         element.classList.toggle("overlay-card-v");

@@ -42,6 +42,7 @@ var SceneA = new Phaser.Class({
         },
 
     preload: function () {
+        //loader, shows the process bar
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
@@ -101,6 +102,7 @@ var SceneA = new Phaser.Class({
             percentText.destroy();
             assetText.destroy();
         });
+        //load necessary asserts
         this.load.audio('mic', '../assets/background.mp3');
         this.load.image('background', '../assets/game/Backyard.png');
         this.load.image('chooseGame', '../assets/game/start.png');
@@ -112,6 +114,7 @@ var SceneA = new Phaser.Class({
     },
 
     create: function () {
+        //background music
         if (playMis) {
             bgmusic = this.sound.add('mic');
 
@@ -121,8 +124,7 @@ var SceneA = new Phaser.Class({
             bgmusic.setVolume(0.4);
             playMis = false;
         }
-        //
-
+        // add necessary picture to this scene
         var background = this.add.image(450, 250, 'background');
         background.setScale(0.5);
         startTitle = this.add.image(450, 100, 'chooseGame');
@@ -135,6 +137,7 @@ var SceneA = new Phaser.Class({
         game3.setScale(0.25);
         game4 = this.add.image(650, 400, 'birdBoxGame').setInteractive();
         game4.setScale(0.25);
+        //press different button to different scene
         game1.once('pointerup', function () {
             this.scene.start('sceneB');
         }, this);
@@ -164,6 +167,7 @@ var SceneB = new Phaser.Class({
         },
 
     preload: function () {
+        // loader, show the process bar
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
@@ -223,7 +227,7 @@ var SceneB = new Phaser.Class({
             percentText.destroy();
             assetText.destroy();
         });
-
+        //load necessary assarts.
         this.load.image('background', '../assets/game/Backyard.png');
         this.load.image('child', "../assets/game/Boy.png")
         this.load.image('dialog1', '../assets/game/Dialog 1.png');
@@ -254,6 +258,7 @@ var SceneB = new Phaser.Class({
     },
 
     create: function () {
+        //insert necessary image.
         var background = this.add.image(450, 250, 'background');
         background.setScale(0.5);
         var child = this.add.image(150, 300, 'child').setInteractive();
@@ -274,25 +279,22 @@ var SceneB = new Phaser.Class({
         diawrong2.setScale(0.4);
         diawrong2.setActive(false).setVisible(false);
         this.input.dragDistanceThreshold = 16;
-
-        this.input.on('dragstart', function (pointer, gameObject) {
-
-            gameObject.setTint(0xff0000);
-
+        //when drag the item, the item be red.
+        this.input.on('dragstart', function (pointer, gameObject) { 
+            gameObject.setTint(0xff0000); 
         });
-
+        // when drag the item, record and change the x, y 
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
 
             gameObject.x = dragX;
             gameObject.y = dragY;
 
         });
-
+        // when the drag stop, check if it is correct, preform different functions.
         this.input.on('dragend', function (pointer, gameObject) {
             gameObject.clearTint();
             if (ckeckRecycle(gameObject)) {
                 if (isRecycle(gameObject)) {
-
                     diacorrect.setActive(true).setVisible(true);
                     gameObject.setActive(false).setVisible(false);
                     clearTrigger++;
@@ -319,7 +321,7 @@ var SceneB = new Phaser.Class({
         }, this);
 
     },
-
+    // update functions to check if all item are in the correct bin, and end the game
     update: function () {
         if (clearTrigger == 6) {
             diahow.destroy();
@@ -341,7 +343,7 @@ var SceneB = new Phaser.Class({
         }
     }
 });
-
+// show dialog and items, make items interactive
 function dia2show() {
     dia1.destroy();
     yesp.destroy();
@@ -377,7 +379,7 @@ function dia2show() {
     letstry.setScale(0.4);
     letstry.once('pointerup', dia3show, this);
 }
-
+// next dialog
 function dia3show() {
     dia2.destroy();
     letstry.destroy();
@@ -392,7 +394,7 @@ function dia3show() {
 }
 
 
-
+//all item can be drag.
 function gamestart() {
     dia3.destroy();
     helpu.destroy();
@@ -406,7 +408,7 @@ function gamestart() {
     this.input.setDraggable(banana);
 
 }
-
+// check if the item is in regular bin
 function ckeckRegular(gameObject) {
     if (gameObject.x < 550 && gameObject.x > 420) {
         if (gameObject.y < 400 && gameObject.y > 200) {
@@ -414,6 +416,7 @@ function ckeckRegular(gameObject) {
         }
     }
 }
+// check if the item is in recycle bin
 function ckeckRecycle(gameObject) {
     if (gameObject.x < 370 && gameObject.x > 200) {
         if (gameObject.y < 400 && gameObject.y > 200) {
@@ -421,7 +424,7 @@ function ckeckRecycle(gameObject) {
         }
     }
 }
-
+// check if the item is recycle rubbish
 function isRecycle(gameObject) {
     if (gameObject.name == "can" || gameObject.name == "paper" || gameObject.name == "Glass" || gameObject.name == "bag") {
         return true;
@@ -430,7 +433,6 @@ function isRecycle(gameObject) {
 }
 
 function diaDestroy() {
-
     diacorrect.setActive(false).setVisible(false);
     diawrong.setActive(false).setVisible(false);
     diawrong2.setActive(false).setVisible(false);
@@ -476,7 +478,7 @@ var SceneC = new Phaser.Class({
         },
 
     preload: function () {
-
+        // load all necssary asserts.
         this.load.image('background', '../assets/game/Backyard.png');
         this.load.image('child', "../assets/game/Boy.png");
         this.load.image('cDia1', '../assets/game/plant tree game/game image/dialog 1.png');
@@ -519,6 +521,7 @@ var SceneC = new Phaser.Class({
         this.load.audio('tryAgain', '../Audio/game/plant tree/tryAgain.wav');
     },
     create: function () {
+        // inset image in the scene
         var background = this.add.image(450, 250, 'background');
         background.setScale(0.5);
         var child = this.add.image(150, 300, 'child');
@@ -530,19 +533,19 @@ var SceneC = new Phaser.Class({
         cNext = this.add.image(700, 400, 'next').setInteractive();
         cNext.setScale(0.5);
         cNext.once('pointerup', c2Sence, this);
-
+        // drag start change color
         this.input.on('dragstart', function (pointer, gameObject) {
             gameObject.setTint(0xff0000);
 
         });
-
+        //draging change x, y
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
 
             gameObject.x = dragX;
             gameObject.y = dragY;
 
         });
-
+        // drag end check if it is in the correct place
         this.input.on('dragend', function (pointer, gameObject) {
             if (isInyard(gameObject)) {
                 gameObject.clearTint();
@@ -560,6 +563,7 @@ var SceneC = new Phaser.Class({
         }, this);
 
     },
+    // check if all item in the correct place, end the game
     update: function () {
         if (tree1 != null) {
             if (isInyard(tree1) && isInyard(tree2) && isInyard(tree3) && isInyard(tree4)) {
@@ -625,7 +629,7 @@ function nativeChoice() {
     cNext.setScale(0.5);
     cNext.once('pointerup', cNextPhase, this);
 }
-
+// if choose wrong answer
 function wrongChoice() {
     cDia3.destroy();
     native.destroy();
@@ -673,7 +677,7 @@ function preplantGame() {
     cTry.setScale(0.5);
     cTry.once('pointerup', plantGame, this);
 }
-
+// make all trees are dragable
 function plantGame() {
     cDia9.destroy();
     cTry.destroy();
@@ -687,7 +691,7 @@ function plantGame() {
     this.input.setDraggable(tree3);
     this.input.setDraggable(tree4);
 }
-
+//reset the trees
 function clearTree() {
     tree1.destroy();
     tree2.destroy();
@@ -705,14 +709,14 @@ function clearTree() {
     this.input.setDraggable(tree3);
     this.input.setDraggable(tree4);
 }
-
+// check if items in the correct place
 function isInyard(gameObject) {
     if (gameObject.y >= 250) {
         return true;
     }
     return false;
 }
-
+// end the game
 function endPlant() {
     destroyConfirm = true;
     confirmButton.setActive(false).setVisible(false);
@@ -725,7 +729,7 @@ function endPlant() {
     cNext.setScale(0.5);
     cNext.once('pointerup', thankPlant, this);
 }
-
+// show thanks
 function thankPlant() {
     cDia13.destroy();
     cNext.destroy();
@@ -777,6 +781,7 @@ var SceneD = new Phaser.Class({
         },
 
     preload: function () {
+        // loader, show the process bar
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
@@ -836,6 +841,7 @@ var SceneD = new Phaser.Class({
             percentText.destroy();
             assetText.destroy();
         });
+        //load all necessary asserts.
         this.load.image('dbackground', '../assets/game/waterbowl game/image of waterbowl game/background pic.png');
         this.load.image('child', "../assets/game/Boy.png");
         this.load.image('dDia1', '../assets/game/waterbowl game/image of waterbowl game/dialog 1.png');
@@ -886,6 +892,7 @@ var SceneD = new Phaser.Class({
          
     },
     create: function () {
+        //insert image in this scene
         var background = this.add.image(450, 250, 'dbackground');
         background.setScale(0.5);
         var child = this.add.image(750, 350, 'child').setInteractive();
@@ -896,18 +903,18 @@ var SceneD = new Phaser.Class({
         dNext = this.add.image(200, 450, 'next').setInteractive();
         dNext.setScale(0.5);
         dNext.once('pointerup', d2Sence, this);
-
+        //drag start, theitem be red
         this.input.on('dragstart', function (pointer, gameObject) {
             gameObject.setTint(0xff0000);
 
         });
-
+        //draging, change the items' x, y
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
             gameObject.x = dragX;
             gameObject.y = dragY;
 
         });
-
+        //drag end, check if it is in the correct place.
         this.input.on('dragend', function (pointer, gameObject) {
             if (isUnderTree(gameObject)) {
                 gameObject.clearTint();
@@ -975,6 +982,7 @@ function d4Sence() {
     dNext.setScale(0.5);
     dNext.once('pointerup', chooseMaterial, this);
 }
+// different choice to different respons
 function chooseMaterial() {
     dDia4.destroy();
     dNext.destroy();
@@ -990,7 +998,7 @@ function chooseMaterial() {
     cbowl.once('pointerup', dgoodChoice, this);
     sbowl.once('pointerup', dwrongChoice, this);
 }
-
+// correct choice to next questions
 function dgoodChoice() {
     dDia5.destroy();
     cbowl.destroy();
@@ -1011,7 +1019,7 @@ function dgoodChoice() {
     choiceBowl2.once('pointerup', dwrongChoice2, this);
     choiceBowl3.once('pointerup', dgoodChoice3, this);
 }
-
+//wrong choice to restart
 function dwrongChoice() {
     dDia5.destroy();
     cbowl.destroy();
@@ -1091,7 +1099,7 @@ function d6Sence() {
     dNext.setScale(0.5);
     dNext.once('pointerup', bowlGame, this);
 }
-
+//set bowl dragable
 function bowlGame() {
     dDia11.destroy();
     dNext.destroy();
@@ -1102,14 +1110,14 @@ function bowlGame() {
     bowl.setScale(0.7);
     this.input.setDraggable(bowl);
 }
-
+// check if the bowl is in the corect place
 function isUnderTree(gameObject) {
     if (gameObject.y > 300 && gameObject.x < 300) {
         return true;
     }
     return false;
 }
-
+// reset the place of bowl
 function clearBowl() {
     bowl.destroy();
     bowlHint.destroy();
@@ -1118,7 +1126,7 @@ function clearBowl() {
     bowl.setScale(0.7);
     this.input.setDraggable(bowl);
 }
-
+//end game
 function endBowl() {
     dDia14.destroy();
     dNext.destroy();
@@ -1168,6 +1176,7 @@ var SceneE = new Phaser.Class({
         },
 
     preload: function () {
+        //loader, show the processor bar
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
@@ -1227,7 +1236,7 @@ var SceneE = new Phaser.Class({
             percentText.destroy();
             assetText.destroy();
         });
-
+        //load all necessary assert
         this.load.image('ebackground', '../assets/game/Birdbox game/game image/bridbox game.png');
         this.load.image('child', "../assets/game/Boy.png");
         this.load.image('eDia1', '../assets/game/Birdbox game/game image/dialog1.png');
@@ -1274,6 +1283,7 @@ var SceneE = new Phaser.Class({
         this.load.audio('notsuitbox', '../Audio/game/birdbox/notsuitbox.wav');
     },
     create: function () {
+        //insert the image
         var background = this.add.image(450, 250, 'ebackground');
         background.setScale(0.7);
         var child = this.add.image(150, 350, 'child').setInteractive();
@@ -1284,18 +1294,18 @@ var SceneE = new Phaser.Class({
         eNext = this.add.image(700, 450, 'next').setInteractive();
         eNext.setScale(0.5);
         eNext.once('pointerup', e2Sence, this);
-
+        //drag start, the item be red
         this.input.on('dragstart', function (pointer, gameObject) {
             gameObject.setTint(0xff0000);
 
         });
-
+        //draging, change the items' x, y
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
             gameObject.x = dragX;
             gameObject.y = dragY;
 
         });
-
+        // when drag end, show different respons
         this.input.on('dragend', function (pointer, gameObject) {
             if (isRightBox(gameObject)) {
                 gameObject.clearTint();
@@ -1350,6 +1360,7 @@ function e3Sence() {
     eNext.setScale(0.5);
     eNext.once('pointerup', e4Sence, this);
 }
+//show the choice to different respons
 function e4Sence() {
     eDia3.destroy();
     eNext.destroy();
@@ -1382,6 +1393,7 @@ function egoodChoice() {
     eNext.setScale(0.5);
     eNext.once('pointerup', e5Sence, this);
 }
+//wrong choice to resart game
 function ewrongChoice() {
     eDia4.destroy();
     wall.destroy();
@@ -1449,7 +1461,7 @@ function egoodChoice2() {
     eNext.setScale(0.5);
     eNext.once('pointerup', boxGame, this);
 }
-
+// set bird box dragable, game start
 function boxGame() {
     eDia10.destroy();
     eNext.destroy();
@@ -1459,7 +1471,7 @@ function boxGame() {
     birdBox.setScale(0.3);
     this.input.setDraggable(birdBox);
 }
-
+// check if the box in the correct place
 function isRightBox(gameObject) {
     if (gameObject.y < 300) {
         if (gameObject.x > 600) {
@@ -1476,7 +1488,7 @@ function isRightBox(gameObject) {
     }
     return false;
 }
-
+//reset the box
 function clearBox() {
     birdBox.destroy();
     boxhint.destroy();
@@ -1485,7 +1497,7 @@ function clearBox() {
     birdBox.setScale(0.3);
     this.input.setDraggable(birdBox);
 }
-
+// end the game
 function endBox() {
     eDia11.destroy();
     eNext.destroy();
@@ -1500,7 +1512,7 @@ function endBox() {
         this.scene.start('sceneA');
     }, this);
 }
-
+//canvas setting, 
 var config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
@@ -1514,9 +1526,10 @@ var config = {
     },
     scene: [SceneA, SceneB, SceneC, SceneD, SceneE]
 };
-
+//build the ame
 var game = new Phaser.Game(config);
 
+//mute function
 var checkMute = false;
 function mute() {
     if (!checkMute) {
@@ -1535,7 +1548,7 @@ function mute() {
     }
 
 }
-
+//back to list function
 function backtoList() {
     this.scene.start('sceneA');
 }

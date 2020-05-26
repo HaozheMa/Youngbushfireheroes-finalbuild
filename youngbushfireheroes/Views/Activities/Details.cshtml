@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
+@*thsi page to show the detail of activity*@
 <div class="info-box">
     <div class="info-container">
         <square-title>@Model.name</square-title>
@@ -78,7 +79,7 @@
 </style>
 
 <div class="stepwizard">
-
+    @*based on the steps to change the style. make sure all point in one line.*@
     <div class="stepwizard-row setup-panel">
         @for (var i = 1; i <= Int32.Parse(Model.steps); i++)
         {
@@ -113,6 +114,7 @@
 </div>
 <br />
 <form role="form">
+    @*loop to load all activity steps. check if it is gif and if it has any audio*@
     @for (var i = 1; i <= Int32.Parse(Model.steps); i++)
     {
         var image1link = Model.root_link + i;
@@ -210,7 +212,7 @@
     </div>
 </div>
 <script>
-
+    //stepper function
     $(document).ready(function () {
         var navListItems = $('div.setup-panel div a'),
             allWells = $('.setup-content'),
@@ -249,6 +251,7 @@
     });
 </script>
 <script>
+    //replay thr gif
     function replay1() {
         var list = document.getElementsByClassName('isGIF');
         for (var i = 0; i < list.length; i++) {
@@ -263,7 +266,7 @@
     var speaker = document.getElementsByClassName("audios");
     var playcheck = true;
 
-
+    // check if aduio is exist. and play function
    @for (var i = 1; i <= Int32.Parse(Model.steps); i++)
    {
        var functionplay = "playAudio" + i + "()";

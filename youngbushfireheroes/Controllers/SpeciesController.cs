@@ -20,6 +20,7 @@ namespace youngbushfireheroes.Controllers
             return View(db.SpeciesSet.ToList());
         }
         // GET: Species
+        //show the choosen species details
         public ActionResult SpeciesDetail(int? id)
         {
             if (id == null)
