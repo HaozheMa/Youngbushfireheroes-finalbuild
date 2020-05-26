@@ -62,14 +62,14 @@
         <div style="position:relative;">
             <img src="~/Image/detail information page/cards/module for food.png" width="100%" />
             @{
-                var styleset = "position:absolute;  left:20%; top:70%; right:10%";
+                var styleset = "position:absolute;  left:20%; top:70%; right:20%";
                 if (Model.food.Length > 15)
                 {
-                    styleset = "position:absolute; font-size:30px; left:20%; bottom:5%; right:10%";
+                    styleset = "position:absolute; font-size:30px; left:20%; bottom:5%; right:8%";
                 }
                 else
                 {
-                    styleset = "position:absolute;  left:20%; bottom:5%; right:10%";
+                    styleset = "position:absolute;  left:20%; bottom:5%; right:20%";
                 }
             }
             <div class="font-card" style="@styleset">@Html.DisplayFor(model => model.food)</div>

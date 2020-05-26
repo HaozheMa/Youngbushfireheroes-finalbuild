@@ -876,6 +876,7 @@ var SceneD = new Phaser.Class({
         this.load.audio('daudio7', '../Audio/game/waterbowl/d7.wav');
         this.load.audio('daudio8', '../Audio/game/waterbowl/d6 8.wav');
         this.load.audio('daudio9', '../Audio/game/waterbowl/d9.wav');
+        this.load.audio('daudio10', '../Audio/game/waterbowl/d10.wav');
         this.load.audio('daudio11', '../Audio/game/waterbowl/d11.wav');
         this.load.audio('daudio14', '../Audio/game/waterbowl/d14.wav');
         this.load.audio('daudion6', '../Audio/game/waterbowl/n6.wav');

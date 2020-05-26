@@ -336,6 +336,7 @@
     <Content Include="Audio\game\recycle\d2.wav" />
     <Content Include="Audio\game\recycle\d3.wav" />
     <Content Include="Audio\game\waterbowl\d1.wav" />
+    <Content Include="Audio\game\waterbowl\d10.wav" />
     <Content Include="Audio\game\waterbowl\d11.wav" />
     <Content Include="Audio\game\waterbowl\d14.wav" />
     <Content Include="Audio\game\waterbowl\d2.wav" />
