@@ -1,5 +1,5 @@
 # youngbushfireheroes-it2
 
-link: <a>it2.youngbushfireheroes.team</a> 
+link:[YoungbushFireHeroes](it2.youngbushfireheroes.team)
 </br>
 password: Upper
